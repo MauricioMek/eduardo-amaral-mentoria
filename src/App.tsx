@@ -1129,10 +1129,10 @@ export default function App() {
                       type="button"
                       onClick={() => {
                         setSelectedCycle(c.id);
+                        setSelectedPillar('TODOS');
+                        setSearchQuery('');
                         const firstMatch = ROUNDS_DATA.find(
-                          (r) =>
-                            (c.id === 0 || r.cycle === c.id) &&
-                            (selectedPillar === 'TODOS' || r.pillar === selectedPillar)
+                          (r) => c.id === 0 || r.cycle === c.id
                         );
                         if (firstMatch) setActiveRoundNumber(firstMatch.round);
                       }}
@@ -1152,9 +1152,14 @@ export default function App() {
               <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-[#544F45]/10">
                 <button
                   type="button"
-                  onClick={() => setSelectedPillar('TODOS')}
+                  onClick={() => {
+                    setSelectedPillar('TODOS');
+                    setSelectedCycle(0);
+                    setSearchQuery('');
+                    setActiveRoundNumber(1);
+                  }}
                   className={`text-xs font-display font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full transition-colors cursor-pointer ${
-                    selectedPillar === 'TODOS'
+                    selectedPillar === 'TODOS' && selectedCycle === 0
                       ? 'bg-[#B5251E] text-white'
                       : 'bg-[#F1F0EC] text-[#35322B] hover:bg-[#544F45]/20'
                   }`}
@@ -1167,11 +1172,9 @@ export default function App() {
                     type="button"
                     onClick={() => {
                       setSelectedPillar(p.id);
-                      const firstInPillar = ROUNDS_DATA.find(
-                        (r) =>
-                          r.pillar === p.id &&
-                          (selectedCycle === 0 || r.cycle === selectedCycle)
-                      );
+                      setSelectedCycle(0);
+                      setSearchQuery('');
+                      const firstInPillar = ROUNDS_DATA.find((r) => r.pillar === p.id);
                       if (firstInPillar) setActiveRoundNumber(firstInPillar.round);
                     }}
                     className={`inline-flex items-center gap-1.5 text-xs font-display font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full transition-colors cursor-pointer ${
@@ -1186,43 +1189,98 @@ export default function App() {
               </div>
             </div>
 
-            {/* Quick Number Selector Bar (1 to 36) */}
+            {/* Quick Number Selector Bar (Filtered dynamically by Cycle / Pillar / Search) */}
             <div className="bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-[#544F45]/15">
-              <div className="flex items-center justify-between mb-2 px-1">
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-3 px-1">
                 <span className="text-[11px] font-bold uppercase tracking-widest text-[#544F45]">
-                  Acesso Rápido por Round (1 a 36):
+                  {selectedCycle !== 0
+                    ? `Rounds do Ciclo C${selectedCycle} (${filteredRounds.length} Rounds):`
+                    : selectedPillar !== 'TODOS'
+                    ? `Rounds do Pilar ${selectedPillar} (${filteredRounds.length} Rounds):`
+                    : searchQuery.trim()
+                    ? `Rounds Encontrados (${filteredRounds.length}):`
+                    : 'Acesso Rápido por Round (1 a 36):'}
                 </span>
                 <span className="text-[11px] text-[#544F45]">
                   Dica: use as setas <kbd className="px-1.5 py-0.5 bg-[#F1F0EC] rounded">←</kbd>{' '}
                   <kbd className="px-1.5 py-0.5 bg-[#F1F0EC] rounded">→</kbd> do teclado
                 </span>
               </div>
-              <div className="grid grid-cols-9 sm:grid-cols-12 md:grid-cols-18 gap-1.5">
-                {ROUNDS_DATA.map((r) => {
-                  const isFilteredIn = filteredRounds.some((fr) => fr.round === r.round);
-                  const isActive = r.round === activeRoundNumber;
-                  return (
-                    <button
-                      key={r.round}
-                      type="button"
-                      onClick={() => {
-                        setActiveRoundNumber(r.round);
-                        setViewMode('slide');
-                      }}
-                      title={`Round ${r.round}: ${r.title}`}
-                      className={`h-8 rounded-lg font-display font-bold text-xs transition-all cursor-pointer ${
-                        isActive
-                          ? 'bg-[#B5251E] text-white shadow-md scale-105 ring-2 ring-[#B5251E]/40'
-                          : isFilteredIn
-                          ? 'bg-[#F1F0EC] hover:bg-[#26241F] text-[#26241F] hover:text-white'
-                          : 'bg-[#F1F0EC]/40 text-[#544F45]/40'
-                      }`}
-                    >
-                      {r.round}
-                    </button>
-                  );
-                })}
-              </div>
+
+              {filteredRounds.length === 0 ? (
+                <div className="text-center py-4 text-xs text-[#544F45]">
+                  Nenhum round encontrado para esta busca.{' '}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedCycle(0);
+                      setSelectedPillar('TODOS');
+                      setSearchQuery('');
+                      setActiveRoundNumber(1);
+                    }}
+                    className="text-[#B5251E] font-bold underline cursor-pointer ml-1"
+                  >
+                    Limpar filtros
+                  </button>
+                </div>
+              ) : filteredRounds.length < 36 ? (
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
+                  {filteredRounds.map((r) => {
+                    const isActive = r.round === activeRoundNumber;
+                    return (
+                      <button
+                        key={r.round}
+                        type="button"
+                        onClick={() => {
+                          setActiveRoundNumber(r.round);
+                          setViewMode('slide');
+                        }}
+                        title={`Round ${r.round}: ${r.title}`}
+                        className={`p-2.5 rounded-xl text-left transition-all cursor-pointer border ${
+                          isActive
+                            ? 'bg-[#B5251E] text-white border-[#B5251E] shadow-md scale-[1.02]'
+                            : 'bg-[#F1F0EC] hover:bg-[#26241F] text-[#26241F] hover:text-white border-transparent'
+                        }`}
+                      >
+                        <span className="font-display font-extrabold text-xs block uppercase tracking-wider">
+                          Round {r.round}
+                        </span>
+                        <span
+                          className={`text-[11px] font-medium line-clamp-1 mt-0.5 block ${
+                            isActive ? 'text-white/90' : ' opacity-80'
+                          }`}
+                        >
+                          {r.title}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="grid grid-cols-9 sm:grid-cols-12 md:grid-cols-18 gap-1.5">
+                  {ROUNDS_DATA.map((r) => {
+                    const isActive = r.round === activeRoundNumber;
+                    return (
+                      <button
+                        key={r.round}
+                        type="button"
+                        onClick={() => {
+                          setActiveRoundNumber(r.round);
+                          setViewMode('slide');
+                        }}
+                        title={`Round ${r.round}: ${r.title}`}
+                        className={`h-8 rounded-lg font-display font-bold text-xs transition-all cursor-pointer ${
+                          isActive
+                            ? 'bg-[#B5251E] text-white shadow-md scale-105 ring-2 ring-[#B5251E]/40'
+                            : 'bg-[#F1F0EC] hover:bg-[#26241F] text-[#26241F] hover:text-white'
+                        }`}
+                      >
+                        {r.round}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
             </div>
 
             {/* SLIDE PRESENTATION MODE — 100% Faithful to Slides 6–46 */}
