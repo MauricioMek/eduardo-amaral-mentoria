@@ -79,6 +79,7 @@ export default function App() {
   const [contactCompany, setContactCompany] = useState('');
   const [contactFormat, setContactFormat] = useState('Vivência de Boxe Corporativa (Equipes / Liderança)');
   const [contactMessage, setContactMessage] = useState('');
+  const [activeTacticalIndex, setActiveTacticalIndex] = useState(0);
 
   // Guided Warmup timer effect
   useEffect(() => {
@@ -723,18 +724,18 @@ export default function App() {
           </div>
         </section>
 
-        {/* SECTION 4: O PRIMEIRO RITMO — Faithful to Slide 4 */}
+        {/* SECTION 4: DO RINGUE AO MUNDO CORPORATIVO */}
         <section id="primeiro-ritmo" className="bg-[#26241F] text-white py-20 lg:py-28 border-t border-[#45413A]">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-              {/* Left Column: Slide 4 Bullet Points */}
+              {/* Left Column: Cadência do Boxe aplicada à Liderança e Mundo Corporativo */}
               <div className="lg:col-span-6 space-y-8">
                 <div className="space-y-3">
                   <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-[#B5251E]">
-                    <Heart className="w-4 h-4 fill-[#B5251E] animate-heartbeat" />
-                    <span>A ORIGEM DO MOVIMENTO</span>
+                    <Target className="w-4 h-4 text-[#B5251E]" />
+                    <span>{FIRST_RHYTHM_DATA.badge}</span>
                   </div>
-                  <h2 className="font-display font-extrabold text-4xl sm:text-5xl text-[#B5251E] uppercase tracking-wide">
+                  <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-[#B5251E] uppercase tracking-wide leading-tight">
                     {FIRST_RHYTHM_DATA.title}
                   </h2>
                 </div>
@@ -747,10 +748,11 @@ export default function App() {
                       <li
                         key={point}
                         style={{ marginLeft: `${index * 12}px` }}
-                        className="flex items-center gap-3 bg-[#35322B]/80 border border-[#45413A] rounded-xl px-5 py-3.5 shadow-md transition-transform hover:translate-x-1"
+                        onClick={() => setActiveTacticalIndex(index % FIRST_RHYTHM_DATA.tacticalPillars.length)}
+                        className="flex items-center gap-3 bg-[#35322B]/80 hover:bg-[#35322B] border border-[#45413A] hover:border-[#B5251E]/60 rounded-xl px-5 py-3.5 shadow-md transition-all hover:translate-x-1 cursor-pointer"
                       >
                         <span className="text-[#B5251E] font-bold text-xl leading-none">•</span>
-                        <p className="text-base sm:text-lg font-medium text-[#F1F0EC]">
+                        <p className="text-sm sm:text-base font-medium text-[#F1F0EC]">
                           <strong className="text-[#B5251E] font-bold">{firstLetter}</strong>
                           {rest}
                         </p>
@@ -761,13 +763,11 @@ export default function App() {
 
                 <div className="pt-2 flex flex-wrap items-center gap-4">
                   <a
-                    href={FIRST_RHYTHM_DATA.youtubeUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#F1F0EC] hover:text-white bg-[#35322B] hover:bg-[#45413A] px-5 py-3 rounded-xl border border-[#544F45] transition-colors"
+                    href="#rounds"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-[#AA231C] hover:bg-[#B5251E] px-5 py-3 rounded-xl shadow-lg shadow-[#AA231C]/25 transition-colors"
                   >
-                    <ExternalLink className="w-4 h-4 text-[#B5251E]" />
-                    <span>Assistir direto no YouTube</span>
+                    <span>Praticar nos 36 Rounds</span>
+                    <ArrowRight className="w-4 h-4" />
                   </a>
                   <span className="text-xs tracking-widest uppercase text-[#F1F0EC]/60">
                     {FIRST_RHYTHM_DATA.subtitle}
@@ -775,29 +775,110 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Right Column: Privacy-Enhanced YouTube Video from Slide 4 */}
+              {/* Right Column: Painel Tático Interativo — Anatomia do Round (Ringue x Mundo Corporativo) */}
               <div className="lg:col-span-6">
-                <div className="bg-[#35322B] p-3 sm:p-4 rounded-2xl border border-[#544F45]/70 shadow-2xl">
-                  <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-black">
-                    <iframe
-                      className="w-full h-full"
-                      src={`https://www.youtube-nocookie.com/embed/${FIRST_RHYTHM_DATA.youtubeEmbedId}?rel=0`}
-                      title="O Primeiro Ritmo — Eduardo Amaral Vivência de Boxe"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      referrerPolicy="strict-origin-when-cross-origin"
-                      allowFullScreen
-                    />
+                <div className="bg-[#35322B] p-5 sm:p-7 rounded-2xl border border-[#544F45]/70 shadow-2xl space-y-6">
+                  {/* Top Bar: Selector of the 4 Tactical Phases */}
+                  <div className="flex items-center justify-between border-b border-[#544F45]/60 pb-4">
+                    <div>
+                      <span className="text-[11px] font-bold uppercase tracking-widest text-[#B5251E] block">
+                        PARALELO PRÁTICO • RINGUE × EMPRESA
+                      </span>
+                      <h3 className="font-display font-bold text-lg sm:text-xl text-white uppercase mt-0.5">
+                        A Anatomia de um Round Corporativo
+                      </h3>
+                    </div>
+                    <span className="px-3 py-1 rounded-full bg-[#26241F] border border-[#544F45] text-xs font-mono text-[#F1F0EC]/80">
+                      0{activeTacticalIndex + 1} / 04
+                    </span>
                   </div>
-                  <div className="mt-3 px-2 flex items-center justify-between text-xs text-[#F1F0EC]/75">
-                    <span>Referência Audiovisual Oficial — Slide 4</span>
-                    <a
-                      href={FIRST_RHYTHM_DATA.youtubeUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[#B5251E] hover:underline font-medium"
+
+                  {/* Phase Tabs */}
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    {FIRST_RHYTHM_DATA.tacticalPillars.map((pillar, idx) => (
+                      <button
+                        key={pillar.id}
+                        type="button"
+                        onClick={() => setActiveTacticalIndex(idx)}
+                        className={`px-3 py-2 rounded-xl text-xs font-display font-bold uppercase tracking-wider border transition-all cursor-pointer ${
+                          activeTacticalIndex === idx
+                            ? 'bg-[#B5251E] text-white border-[#B5251E] shadow-md'
+                            : 'bg-[#26241F] text-[#F1F0EC]/75 border-[#45413A] hover:border-[#F1F0EC]/40 hover:text-white'
+                        }`}
+                      >
+                        Fase 0{idx + 1}
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Active Tactical Comparison Card */}
+                  {(() => {
+                    const activeItem = FIRST_RHYTHM_DATA.tacticalPillars[activeTacticalIndex];
+                    return (
+                      <div className="bg-[#26241F] rounded-2xl p-5 sm:p-6 border border-[#45413A] space-y-5">
+                        <div className="flex flex-wrap items-center justify-between gap-2">
+                          <span className="text-xs font-display font-bold tracking-widest uppercase text-[#B5251E]">
+                            {activeItem.tag}
+                          </span>
+                          <span className="text-[11px] font-semibold px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                            {activeItem.metric}
+                          </span>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          <div className="bg-[#35322B]/70 rounded-xl p-3.5 border border-[#45413A]">
+                            <span className="text-[10px] font-bold uppercase tracking-widest text-[#F1F0EC]/60 block">
+                              Fundamento no Boxe
+                            </span>
+                            <p className="font-display font-bold text-sm text-white uppercase mt-1">
+                              {activeItem.ringTitle}
+                            </p>
+                          </div>
+                          <div className="bg-[#35322B]/70 rounded-xl p-3.5 border border-[#B5251E]/40">
+                            <span className="text-[10px] font-bold uppercase tracking-widest text-[#B5251E] block">
+                              Tradução Corporativa
+                            </span>
+                            <p className="font-display font-bold text-sm text-white uppercase mt-1">
+                              {activeItem.corpTitle}
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="space-y-3 text-xs sm:text-sm">
+                          <div className="bg-[#35322B]/50 rounded-xl p-3.5 border-l-4 border-[#B5251E]">
+                            <p className="text-[#F1F0EC]/90">
+                              <strong className="text-[#B5251E] font-display font-bold uppercase mr-1.5">
+                                Sem Técnica (No Automático):
+                              </strong>
+                              {activeItem.st}
+                            </p>
+                          </div>
+                          <div className="bg-[#35322B]/50 rounded-xl p-3.5 border-l-4 border-emerald-500">
+                            <p className="text-white">
+                              <strong className="text-emerald-400 font-display font-bold uppercase mr-1.5">
+                                Com Técnica (Em Equilíbrio):
+                              </strong>
+                              {activeItem.ct}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })()}
+
+                  <div className="px-1 flex items-center justify-between text-xs text-[#F1F0EC]/70">
+                    <span>Metodologia Aplicada — Eduardo Amaral (FGB)</span>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setActiveTacticalIndex(
+                          (prev) => (prev + 1) % FIRST_RHYTHM_DATA.tacticalPillars.length
+                        )
+                      }
+                      className="text-[#B5251E] hover:underline font-semibold cursor-pointer"
                     >
-                      youtu.be/mTN0uPuehbU
-                    </a>
+                      Próxima Fase →
+                    </button>
                   </div>
                 </div>
               </div>

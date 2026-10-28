@@ -99,16 +99,53 @@ export const WARMUP_DATA = {
 };
 
 export const FIRST_RHYTHM_DATA = {
-  title: 'O PRIMEIRO RITMO',
+  badge: 'CADÊNCIA, TÉCNICA E ALTA PERFORMANCE',
+  title: 'DO RINGUE AO MUNDO CORPORATIVO',
   subtitle: '35 ANOS DE CONSTÂNCIA EM EQUILÍBRIO',
-  youtubeUrl: 'https://youtu.be/mTN0uPuehbU?si=MqYAtmUcYJRzyXL9',
-  youtubeEmbedId: 'mTN0uPuehbU',
   points: [
-    'O coração é o primeiro órgão a se formar.',
-    'Bate na 3ª semana de gestação.',
-    'O cérebro chega depois.',
-    'E antes de qualquer movimento, já existe um ritmo.',
-    'O ritmo começa aqui.',
+    'O controle do ritmo impede reações no impulso em negociações e momentos críticos.',
+    'Base firme e guarda alta preservam a clareza mental diante de crises e metas agressivas.',
+    'O jab prepara o direto: processos bem executados sustentam grandes entregas.',
+    'Energia estratégica: foco intenso no essencial supera horas de desgaste no automático.',
+    'O minuto no corner: pausa consciente, escuta ativa e ajuste rápido de rota com a equipe.',
+  ],
+  tacticalPillars: [
+    {
+      id: 'centro',
+      tag: 'FASE 01 • POSICIONAMENTO',
+      ringTitle: 'Domínio do Centro do Ringue',
+      corpTitle: 'Protagonismo e Presença Executiva',
+      st: 'Ficar recuado nas cordas, apenas reagindo a urgências e apagando incêndios o dia inteiro.',
+      ct: 'Assumir o centro com base firme, ditar a cadência das prioridades e conduzir reuniões com segurança.',
+      metric: '+Clareza de Prioridades',
+    },
+    {
+      id: 'guarda',
+      tag: 'FASE 02 • AUTODOMÍNIO',
+      ringTitle: 'Guarda Alta e Leitura de Distância',
+      corpTitle: 'Inteligência Emocional sob Pressão',
+      st: 'Expor o queixo ao responder críticas no calor da hora ou envolver-se em combates desnecessários.',
+      ct: 'Absorver o impacto com serenidade, filtrar o que realmente importa e agir no tempo estratégico.',
+      metric: '-Desgaste Emocional',
+    },
+    {
+      id: 'combinacao',
+      tag: 'FASE 03 • EXECUÇÃO',
+      ringTitle: 'Precisão Técnica vs. Força Bruta',
+      corpTitle: 'Produtividade Limpa e Direcionada',
+      st: 'Disparar golpes sem mira por 2 horas seguidas, gerando exaustão física e baixo resultado real.',
+      ct: 'Conectar fundamentos com intenção clara: menos ruído operacional e máxima eficiência na entrega.',
+      metric: '+Performance Sustentável',
+    },
+    {
+      id: 'corner',
+      tag: 'FASE 04 • LIDERANÇA',
+      ringTitle: 'O Intervalo Estratégico no Corner',
+      corpTitle: 'Feedback Construtivo e Recuperação',
+      st: 'Ignorar os sinais de fadiga da equipe e corrigir erros no grito, gerando tensão e paralisia.',
+      ct: 'Orientar com clareza técnica em 60 segundos, recuperar o fôlego e voltar para o próximo round melhor.',
+      metric: '+Engajamento e Longevidade',
+    },
   ],
 };
 
