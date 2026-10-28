@@ -934,12 +934,28 @@ export default function App() {
                   <div className="mt-6 pt-4 border-t border-[#45413A] flex items-center justify-between">
                     <div className="flex flex-wrap gap-1.5">
                       {pillar.rounds.map((rNum) => (
-                        <span
+                        <button
                           key={rNum}
-                          className="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#35322B] text-[#F1F0EC]/90 border border-[#544F45]"
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedPillar(pillar.id);
+                            setSelectedCycle(0);
+                            setSearchQuery('');
+                            setActiveRoundNumber(rNum);
+                            setViewMode('slide');
+                            const el = document.getElementById('rounds');
+                            if (el) el.scrollIntoView({ behavior: 'smooth' });
+                          }}
+                          title={`Ir para o Round ${rNum} (${pillar.name})`}
+                          className={`text-[11px] font-semibold px-2.5 py-1 rounded border transition-all cursor-pointer ${
+                            activeRoundNumber === rNum
+                              ? 'bg-[#B5251E] text-white border-[#B5251E] shadow-sm'
+                              : 'bg-[#35322B] hover:bg-[#B5251E] text-[#F1F0EC]/90 hover:text-white border-[#544F45] hover:border-[#B5251E]'
+                          }`}
                         >
                           R{rNum}
-                        </span>
+                        </button>
                       ))}
                     </div>
                     <span className="text-xs font-semibold text-[#B5251E] group-hover:translate-x-1 transition-transform">
