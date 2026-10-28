@@ -416,7 +416,7 @@ export default function App() {
                   </div>
                 </div>
 
-                <p className="text-base sm:text-lg text-[#F1F0EC]/85 max-w-[60ch] leading-[1.75] text-left">
+                <p className="text-base sm:text-lg text-[#F1F0EC]/85 max-w-[60ch] leading-[1.75] text-editorial-justify">
                   Conduzindo vivências de boxe e transformando o ritmo corporativo em{' '}
                   <strong className="text-white font-semibold">rounds mais leves</strong>. Uma
                   metodologia proprietária de <strong className="text-white">36 Rounds</strong> que
@@ -494,7 +494,7 @@ export default function App() {
                 <h2 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-[0.04em] text-[#B5251E] uppercase leading-[1.08]">
                   {WARMUP_DATA.title}
                 </h2>
-                <p className="text-sm sm:text-base text-[#544F45] leading-[1.72] text-left">
+                <p className="text-sm sm:text-base text-[#544F45] leading-[1.72] text-editorial-justify">
                   Antes de qualquer decisão estratégica ou movimento no ringue, o corpo e a mente
                   precisam encontrar o ponto exato entre tranquilidade e agilidade.
                 </p>
@@ -636,12 +636,12 @@ export default function App() {
                 <h2 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl text-[#B5251E] tracking-tight uppercase leading-[1.08]">
                   {MENTOR_DATA.headline}
                 </h2>
-                <p className="text-base sm:text-lg text-[#35322B] leading-[1.75] max-w-[62ch]">
+                <p className="text-base sm:text-lg text-[#35322B] leading-[1.75] text-editorial-justify">
                   Ao longo de <strong>35 anos dedicados ao boxe</strong> e à formação técnica pela{' '}
                   <strong>Federação Gaúcha de Boxe (FGB)</strong>, Eduardo Amaral compreendeu que o
                   ringue é o laboratório mais fiel do comportamento humano sob pressão.
                 </p>
-                <p className="text-base text-[#544F45] leading-[1.75] max-w-[62ch]">
+                <p className="text-base text-[#544F45] leading-[1.75] text-editorial-justify">
                   Na vida executiva e corporativa, profissionais enfrentam diariamente rounds
                   invisíveis: prazos curtos, decisões em milissegundos, conversas difíceis, metas
                   exigentes e a necessidade constante de manter a guarda emocional firme sem perder a
@@ -694,9 +694,9 @@ export default function App() {
                 <h3 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-[#B5251E] uppercase tracking-wide leading-[1.1]">
                   {MENTOR_DATA.callToAction}
                 </h3>
-                <p className="text-[#F1F0EC]/85 text-base sm:text-lg leading-[1.75] max-w-[62ch]">
+                <p className="text-[#F1F0EC]/85 text-base sm:text-lg leading-[1.75] text-editorial-justify">
                   A metodologia <strong>Vivência de Boxe</strong> é adaptada para a realidade da sua
-                  organização ou jornada individual — sem necessidade de experiência prévia em artes
+                  organização ou jornada individual, sem necessidade de experiência prévia em artes
                   marciais, com total segurança, leveza e aplicação imediata no trabalho.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
@@ -704,7 +704,7 @@ export default function App() {
                     <p className="font-display font-bold text-sm uppercase text-white mb-1.5">
                       1. Vivência Corporativa
                     </p>
-                    <p className="text-xs sm:text-[13px] text-[#F1F0EC]/80 leading-relaxed">
+                    <p className="text-xs sm:text-[13px] text-[#F1F0EC]/80 leading-relaxed text-editorial-justify">
                       Imersão prática e reflexiva para times, convenções e eventos de liderança.
                     </p>
                   </div>
@@ -712,7 +712,7 @@ export default function App() {
                     <p className="font-display font-bold text-sm uppercase text-white mb-1.5">
                       2. Mentoria Executiva
                     </p>
-                    <p className="text-xs sm:text-[13px] text-[#F1F0EC]/80 leading-relaxed">
+                    <p className="text-xs sm:text-[13px] text-[#F1F0EC]/80 leading-relaxed text-editorial-justify">
                       Acompanhamento focado em tomada de decisão sob pressão, foco e equilíbrio.
                     </p>
                   </div>
@@ -720,8 +720,8 @@ export default function App() {
                     <p className="font-display font-bold text-sm uppercase text-white mb-1.5">
                       3. Palestras & Workshops
                     </p>
-                    <p className="text-xs sm:text-[13px] text-[#F1F0EC]/80 leading-relaxed">
-                      Os 36 Rounds aplicados à cultura organizacional, resiliência e alta performance.
+                    <p className="text-xs sm:text-[13px] text-[#F1F0EC]/80 leading-relaxed text-editorial-justify">
+                      Os 36 Rounds aplicados à cultura organizacional, com resiliência e alta performance.
                     </p>
                   </div>
                 </div>
@@ -778,7 +778,7 @@ export default function App() {
                         <span className="text-[#B5251E] font-bold text-lg leading-snug shrink-0 mt-0.5">
                           •
                         </span>
-                        <p className="text-sm sm:text-base font-medium text-[#F1F0EC] leading-relaxed text-left">
+                        <p className="text-sm sm:text-base font-medium text-[#F1F0EC] leading-relaxed text-editorial-justify">
                           <strong className="text-[#B5251E] font-bold">{firstLetter}</strong>
                           {rest}
                         </p>
@@ -870,9 +870,9 @@ export default function App() {
                           </div>
                         </div>
 
-                        <div className="space-y-3 text-xs sm:text-sm leading-relaxed text-left">
+                        <div className="space-y-3 text-xs sm:text-sm leading-relaxed">
                           <div className="bg-[#35322B]/55 rounded-xl p-4 border-l-4 border-[#B5251E]">
-                            <p className="text-[#F1F0EC]/90">
+                            <p className="text-[#F1F0EC]/90 text-editorial-justify">
                               <strong className="text-[#B5251E] font-display font-bold uppercase mr-1.5">
                                 Sem Técnica (No Automático):
                               </strong>
@@ -880,7 +880,7 @@ export default function App() {
                             </p>
                           </div>
                           <div className="bg-[#35322B]/55 rounded-xl p-4 border-l-4 border-emerald-500">
-                            <p className="text-white">
+                            <p className="text-white text-editorial-justify">
                               <strong className="text-emerald-400 font-display font-bold uppercase mr-1.5">
                                 Com Técnica (Em Equilíbrio):
                               </strong>
@@ -893,7 +893,7 @@ export default function App() {
                   })()}
 
                   <div className="px-1 flex items-center justify-between text-xs text-[#F1F0EC]/70">
-                    <span>Metodologia Aplicada — Eduardo Amaral (FGB)</span>
+                    <span>Metodologia Aplicada • Eduardo Amaral (FGB)</span>
                     <button
                       type="button"
                       onClick={() =>
@@ -926,7 +926,7 @@ export default function App() {
               <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight leading-[1.1]">
                 Os 6 Pilares da Constância em Equilíbrio
               </h2>
-              <p className="text-sm sm:text-base text-[#F1F0EC]/85 leading-[1.72] max-w-[62ch]">
+              <p className="text-sm sm:text-base text-[#F1F0EC]/85 leading-[1.72] max-w-[62ch] text-editorial-justify">
                 Os 36 Rounds são organizados em 6 ciclos completos. Cada ciclo percorre 6 dimensões
                 essenciais da liderança, da inteligência emocional e da alta performance sustentável.
               </p>
@@ -958,7 +958,7 @@ export default function App() {
                     <h3 className="font-display font-bold text-lg sm:text-xl uppercase tracking-wide text-white group-hover:text-[#B5251E] transition-colors duration-300 leading-snug">
                       {pillar.name}
                     </h3>
-                    <p className="text-sm text-[#F1F0EC]/80 leading-[1.7] text-left">
+                    <p className="text-sm text-[#F1F0EC]/80 leading-[1.7] text-editorial-justify">
                       {pillar.shortDesc}
                     </p>
                   </div>
@@ -1009,7 +1009,7 @@ export default function App() {
                   <h3 className="font-display font-bold text-2xl sm:text-3xl text-white leading-snug">
                     Qual é o momento atual da sua equipe?
                   </h3>
-                  <p className="text-sm sm:text-base text-[#F1F0EC]/80 leading-[1.7]">
+                  <p className="text-sm sm:text-base text-[#F1F0EC]/80 leading-[1.7] text-editorial-justify">
                     Selecione um cenário corporativo ao lado para descobrir imediatamente quais
                     Rounds da metodologia trabalham essa competência na prática.
                   </p>
@@ -1038,7 +1038,7 @@ export default function App() {
                       key={diag.id}
                       className="bg-[#35322B]/90 rounded-2xl p-5 sm:p-6 border border-[#544F45] shadow-[inset_0_2px_8px_rgba(0,0,0,0.3)] space-y-4 text-left"
                     >
-                      <p className="text-sm sm:text-base text-[#F1F0EC]/90 leading-relaxed">
+                      <p className="text-sm sm:text-base text-[#F1F0EC]/90 leading-relaxed text-editorial-justify">
                         {diag.desc}
                       </p>
                       <div className="space-y-2.5">
@@ -1082,7 +1082,7 @@ export default function App() {
                 <h2 className="font-display font-extrabold text-3xl sm:text-5xl text-[#26241F] uppercase tracking-tight leading-[1.08]">
                   Os 36 Rounds em Equilíbrio
                 </h2>
-                <p className="text-sm sm:text-base text-[#544F45] max-w-2xl leading-[1.7]">
+                <p className="text-sm sm:text-base text-[#544F45] max-w-2xl leading-[1.7] text-editorial-justify">
                   Navegue por todos os 36 Rounds que conectam a <strong>Fusão de Realidades</strong>{' '}
                   (ambiente corporativo), a <strong>Vivência de Treinos</strong> (ST vs CT no ringue)
                   e a <strong>Vivência do Instrutor</strong> (o legado).
@@ -1131,32 +1131,32 @@ export default function App() {
 
             {/* Filters Bar (Pillar, Cycle, Search) */}
             <div className="surface-stage-light bg-white rounded-2xl p-4 sm:p-6 border border-[#544F45]/15 space-y-4 text-left">
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
                 {/* Search input */}
-                <div className="md:col-span-5 relative">
+                <div className="lg:col-span-4 relative">
                   <Search className="w-4 h-4 text-[#544F45] absolute left-3.5 top-1/2 -translate-y-1/2" />
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(sanitizeInput(e.target.value, 80))}
-                    placeholder="Buscar por tema, palavra-chave (ex: silêncio, foco, liderança, jab)..."
+                    placeholder="Buscar por tema ou termo (ex: silêncio, foco, liderança, jab)..."
                     className="w-full pl-10 pr-4 py-2.5 bg-[#F1F0EC] rounded-xl text-sm text-[#26241F] placeholder-[#544F45]/70 border border-transparent focus:border-[#B5251E] focus:bg-white shadow-inner transition-all duration-200 focus:outline-none"
                   />
                 </div>
 
                 {/* Cycle filter */}
-                <div className="md:col-span-7 flex flex-wrap items-center gap-1.5 justify-start md:justify-end">
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#544F45] mr-1">
+                <div className="lg:col-span-8 flex flex-wrap lg:flex-nowrap items-center gap-1.5 justify-start lg:justify-end">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#544F45] mr-1 shrink-0">
                     Ciclos:
                   </span>
                   {[
-                    { id: 0, label: 'Todos (1–36)' },
-                    { id: 1, label: 'C1 (1–6)' },
-                    { id: 2, label: 'C2 (7–12)' },
-                    { id: 3, label: 'C3 (13–18)' },
-                    { id: 4, label: 'C4 (19–24)' },
-                    { id: 5, label: 'C5 (25–30)' },
-                    { id: 6, label: 'C6 (31–36)' },
+                    { id: 0, label: 'Todos (1 a 36)' },
+                    { id: 1, label: 'C1 (1 a 6)' },
+                    { id: 2, label: 'C2 (7 a 12)' },
+                    { id: 3, label: 'C3 (13 a 18)' },
+                    { id: 4, label: 'C4 (19 a 24)' },
+                    { id: 5, label: 'C5 (25 a 30)' },
+                    { id: 6, label: 'C6 (31 a 36)' },
                   ].map((c) => (
                     <button
                       key={c.id}
@@ -1170,7 +1170,7 @@ export default function App() {
                         );
                         if (firstMatch) setActiveRoundNumber(firstMatch.round);
                       }}
-                      className={`text-xs font-semibold px-3 py-1.5 rounded-lg transition-all duration-200 cursor-pointer ${
+                      className={`text-xs font-semibold px-2.5 py-1.5 rounded-lg whitespace-nowrap transition-all duration-200 cursor-pointer ${
                         selectedCycle === c.id
                           ? 'btn-premium-dark text-white'
                           : 'bg-[#F1F0EC] text-[#35322B] hover:bg-[#544F45]/20 hover:-translate-y-0.5'
@@ -1385,7 +1385,7 @@ export default function App() {
                         {currentRoundObj.fusion.subtitle}
                       </h4>
 
-                      <p className="text-base sm:text-lg text-[#26241F]/90 leading-[1.75] text-left">
+                      <p className="text-base sm:text-lg text-[#26241F]/90 leading-[1.75] text-editorial-justify">
                         {currentRoundObj.fusion.description}
                       </p>
                     </div>
@@ -1414,9 +1414,9 @@ export default function App() {
                       </h4>
 
                       <div className="space-y-3.5 text-sm sm:text-base leading-[1.7] text-left">
-                        <p className="text-[#F1F0EC]/90">{currentRoundObj.training.context}</p>
+                        <p className="text-[#F1F0EC]/90 text-editorial-justify">{currentRoundObj.training.context}</p>
                         <div className="bg-[#26241F]/95 rounded-xl p-4 border-l-4 border-[#B5251E] shadow-[inset_0_1px_0_rgba(241,240,236,0.06)]">
-                          <p className="text-[#F1F0EC]">
+                          <p className="text-[#F1F0EC] text-editorial-justify">
                             <strong className="text-[#B5251E] font-display font-bold tracking-wider mr-1.5">
                               ST:
                             </strong>
@@ -1424,9 +1424,9 @@ export default function App() {
                           </p>
                         </div>
 
-                        <p className="text-[#F1F0EC]/90 pt-1">{currentRoundObj.training.insight}</p>
+                        <p className="text-[#F1F0EC]/90 pt-1 text-editorial-justify">{currentRoundObj.training.insight}</p>
                         <div className="bg-[#26241F]/95 rounded-xl p-4 border-l-4 border-emerald-500 shadow-[inset_0_1px_0_rgba(241,240,236,0.06)]">
-                          <p className="text-white">
+                          <p className="text-white text-editorial-justify">
                             <strong className="text-[#B5251E] font-display font-bold tracking-wider mr-1.5">
                               CT:
                             </strong>
@@ -1583,7 +1583,7 @@ export default function App() {
                   <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-white uppercase tracking-tight leading-[1.12]">
                     Transforme o Ritmo da Sua Equipe em Rounds Mais Leves
                   </h2>
-                  <p className="text-sm sm:text-base text-[#F1F0EC]/85 leading-[1.7] max-w-[60ch]">
+                  <p className="text-sm sm:text-base text-[#F1F0EC]/85 leading-[1.7] max-w-[60ch] text-editorial-justify">
                     Preencha os dados abaixo para iniciar o atendimento direto pelo WhatsApp de{' '}
                     <strong>Eduardo Amaral</strong> e desenhar o formato ideal para sua empresa ou
                     liderança.

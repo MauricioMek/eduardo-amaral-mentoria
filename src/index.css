@@ -22,11 +22,26 @@
   h1, h2, h3, h4, .font-display {
     font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
     text-wrap: balance;
+    hyphens: none;
+    -webkit-hyphens: none;
   }
 
   p, li {
-    text-wrap: pretty;
+    hyphens: none;
+    -webkit-hyphens: none;
+    word-break: normal;
+    overflow-wrap: normal;
   }
+}
+
+.text-editorial-justify {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  word-break: normal;
+  overflow-wrap: normal;
 }
 
 /* Premium 3D Depth, Realistic Layered Shadows & Subtle Specular Lighting */

@@ -152,7 +152,7 @@ export const FIRST_RHYTHM_DATA = {
 export const MENTOR_DATA = {
   name: 'EDUARDO AMARAL',
   role: 'Instrutor Técnico',
-  organization: 'Federação Gaúcha de Boxe — FGB',
+  organization: 'Federação Gaúcha de Boxe (FGB)',
   experience: '35 ANOS DE CONSTÂNCIA EM EQUILÍBRIO',
   headline: 'POR QUE ESTOU AQUI?',
   missionTitle: 'CONDUZINDO VIVÊNCIAS DE BOXE',
