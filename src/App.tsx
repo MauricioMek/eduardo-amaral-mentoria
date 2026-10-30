@@ -76,7 +76,7 @@ export default function App() {
 
   // Contact form state (with strict client-side sanitization)
   const [contactName, setContactName] = useState('');
-  const [contactFormat, setContactFormat] = useState('Vivência de Boxe Corporativa (Equipes / Liderança)');
+  const [contactFormat, setContactFormat] = useState('Vivências do Boxe');
   const [contactMessage, setContactMessage] = useState('');
   const [activeTacticalIndex, setActiveTacticalIndex] = useState(0);
 
@@ -795,7 +795,7 @@ export default function App() {
                 TREINO EXECUTIVO EM GRAMADO/RS
               </span>
               <h2 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl text-white uppercase tracking-tight leading-[1.08]">
-                BOXE PARA QUEM CONSTRÓI IMPÉRIOS.
+                TREINE COM INTENSIDADE. EVOLUA COM PROPÓSITO.
               </h2>
               <p className="text-base sm:text-lg text-[#F1F0EC]/90 leading-[1.7] text-editorial-justify">
                 Treino presencial em Gramado/RS para empresários e profissionais que buscam saúde física, mental e alta performance.
@@ -1017,18 +1017,9 @@ export default function App() {
                       onChange={(e) => setContactFormat(e.target.value)}
                       className="w-full px-4 py-3 rounded-xl bg-[#35322B] border border-[#544F45] text-white text-sm shadow-inner transition-colors duration-200 focus:border-[#B5251E] focus:outline-none"
                     >
-                      <option value="Vivência de Boxe Corporativa (Equipes / Liderança)">
-                        Vivência de Boxe Corporativa (Equipes / Liderança)
-                      </option>
-                      <option value="Palestra Executiva — Os 36 Rounds em Equilíbrio">
-                        Palestra Executiva — Os 36 Rounds em Equilíbrio
-                      </option>
-                      <option value="Mentoria Individual / Executiva">
-                        Mentoria Individual / Executiva
-                      </option>
-                      <option value="Treinamento Técnico e Comportamental">
-                        Treinamento Técnico e Comportamental
-                      </option>
+                      <option value="Vivências do Boxe">Vivências do Boxe</option>
+                      <option value="Biomecânica do Boxe">Biomecânica do Boxe</option>
+                      <option value="Treino Executivo">Treino Executivo</option>
                     </select>
                   </div>
 
