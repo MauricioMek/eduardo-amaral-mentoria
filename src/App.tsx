@@ -202,7 +202,7 @@ export default function App() {
               href="#vivencia-corporativa"
               className="hover:text-white transition-colors duration-200"
             >
-              Vivências de Boxe
+              Vivências do Boxe
             </a>
             <a
               href="#biomecanica-boxe"
@@ -263,7 +263,7 @@ export default function App() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3.5 py-2.5 rounded-lg hover:bg-[#35322B] transition-colors duration-200"
               >
-                Vivências de Boxe
+                Vivências do Boxe
               </a>
               <a
                 href="#biomecanica-boxe"
@@ -431,14 +431,14 @@ export default function App() {
                 <div className="lg:col-span-8 lg:pl-10 space-y-7 sm:space-y-8 text-left">
                   <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#35322B]/90 border border-[#AA231C]/50 text-xs font-semibold tracking-widest uppercase text-[#F1F0EC] shadow-[0_4px_14px_-2px_rgba(0,0,0,0.35),inset_0_1px_0_0_rgba(241,240,236,0.1)]">
                     <span className="w-2 h-2 rounded-full bg-[#AA231C] animate-ping shrink-0" />
-                    <span>Vivências de Boxe • Treinamento Corporativo • Alta Performance</span>
+                    <span>Vivências do Boxe • Treinamento Corporativo • Alta Performance</span>
                   </div>
 
                   <div className="space-y-2">
                     <h1 className="font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl tracking-tight text-white leading-[1.05] drop-shadow-[0_4px_18px_rgba(0,0,0,0.35)]">
                       VIVÊNCIA
                       <br />
-                      <span className="inline-block">DE </span>{' '}
+                      <span className="inline-block">DO </span>{' '}
                       <span className="inline-block relative pb-2">
                         BOXE
                         <span className="absolute bottom-0 left-0 right-0 h-1.5 bg-[#B5251E] rounded-full shadow-[0_2px_10px_rgba(181,37,30,0.6)]" />
