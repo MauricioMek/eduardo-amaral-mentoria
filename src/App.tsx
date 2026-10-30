@@ -790,14 +790,15 @@ export default function App() {
         <section id="treino-executivo" className="bg-[#1C1A17] text-white py-20 sm:py-24 lg:py-28 border-t border-[#45413A]">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
             {/* Título de Impacto (Topo) */}
-            <div className="text-left space-y-3 max-w-3xl border-l-[3px] border-[#B5251E] pl-5 sm:pl-6">
-              <span className="inline-block text-xs font-bold tracking-[0.22em] uppercase text-[#B5251E]">
+            <div className="text-left space-y-4 max-w-4xl border-l-[3px] border-[#B5251E] pl-5 sm:pl-7">
+              <span className="inline-block text-xs font-bold tracking-[0.25em] uppercase text-[#B5251E]">
                 TREINO EXECUTIVO EM GRAMADO/RS
               </span>
-              <h2 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl text-white uppercase tracking-tight leading-[1.08]">
-                TREINE COM INTENSIDADE. EVOLUA COM PROPÓSITO.
+              <h2 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-[54px] text-white uppercase tracking-tight leading-[1.12]">
+                <span className="block drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)]">TREINE COM INTENSIDADE.</span>
+                <span className="block text-[#B5251E] mt-1 drop-shadow-[0_4px_18px_rgba(181,37,30,0.35)]">EVOLUA COM PROPÓSITO.</span>
               </h2>
-              <p className="text-base sm:text-lg text-[#F1F0EC]/90 leading-[1.7] text-editorial-justify">
+              <p className="text-base sm:text-lg text-[#F1F0EC]/85 leading-[1.75] text-editorial-justify max-w-2xl pt-1">
                 Treino presencial em Gramado/RS para empresários e profissionais que buscam saúde física, mental e alta performance.
               </p>
             </div>
