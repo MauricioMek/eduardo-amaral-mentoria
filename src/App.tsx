@@ -76,7 +76,6 @@ export default function App() {
 
   // Contact form state (with strict client-side sanitization)
   const [contactName, setContactName] = useState('');
-  const [contactCompany, setContactCompany] = useState('');
   const [contactFormat, setContactFormat] = useState('Vivência de Boxe Corporativa (Equipes / Liderança)');
   const [contactMessage, setContactMessage] = useState('');
   const [activeTacticalIndex, setActiveTacticalIndex] = useState(0);
@@ -171,7 +170,6 @@ export default function App() {
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const cleanName = sanitizeInput(contactName.trim(), 80) || 'Visitante';
-    const cleanCompany = sanitizeInput(contactCompany.trim(), 80);
     const cleanFormat = sanitizeInput(contactFormat, 100);
     const cleanMsg = sanitizeInput(contactMessage.trim(), 400);
 
@@ -179,7 +177,6 @@ export default function App() {
       `Olá, Eduardo Amaral! Vim pela página oficial da *Vivência de Boxe — A Constância em Equilíbrio*.`,
       ``,
       `*Nome:* ${cleanName}`,
-      cleanCompany ? `*Empresa / Organização:* ${cleanCompany}` : '',
       `*Interesse:* ${cleanFormat}`,
       cleanMsg ? `*Mensagem:* ${cleanMsg}` : '',
     ].filter(Boolean);
@@ -196,49 +193,39 @@ export default function App() {
     <div className="min-h-screen flex flex-col bg-[#26241F] text-[#F1F0EC] antialiased selection:bg-[#AA231C] selection:text-white">
       {/* Top Navigation */}
       <header className="sticky top-0 z-50 bg-[#26241F]/95 backdrop-blur-md border-b border-[#45413A]/80 shadow-[0_8px_30px_-8px_rgba(0,0,0,0.6),inset_0_-1px_0_0_rgba(241,240,236,0.06)] transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-          <a
-            href="#inicio"
-            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B5251E] rounded-lg"
-            aria-label="Eduardo Amaral — Mentorias e Boxe"
-          >
-            <div className="bg-white rounded-lg px-3 py-1.5 shadow-[0_4px_14px_-2px_rgba(0,0,0,0.4),inset_0_1px_0_0_rgba(255,255,255,1)] transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:shadow-[0_8px_20px_-4px_rgba(0,0,0,0.5)]">
-              <img
-                src="/logo-light.svg"
-                alt="Eduardo Amaral — Mentorias e Boxe"
-                className="h-9 sm:h-10 w-auto"
-              />
-            </div>
-          </a>
-
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
           <nav className="hidden lg:flex items-center gap-7 text-sm font-medium tracking-wide text-[#F1F0EC]/85">
-            <a href="#inicio" className="hover:text-white transition-colors duration-200">
-              A Vivência
-            </a>
-            <a href="#aquecimento" className="hover:text-white transition-colors duration-200">
-              O Aquecimento
-            </a>
-            <a href="#mentor" className="hover:text-white transition-colors duration-200">
-              Por Que Estou Aqui?
-            </a>
-            <a href="#primeiro-ritmo" className="hover:text-white transition-colors duration-200">
-              O Primeiro Ritmo
-            </a>
-            <a href="#pilares" className="hover:text-white transition-colors duration-200">
-              Os 6 Pilares
+            <a href="#apresentacao" className="hover:text-white transition-colors duration-200">
+              Apresentação
             </a>
             <a
-              href="#rounds"
-              className="text-[#F1F0EC] font-semibold px-3.5 py-1.5 rounded-lg bg-[#35322B] border border-[#AA231C]/50 hover:border-[#B5251E] shadow-[0_2px_10px_-2px_rgba(0,0,0,0.35),inset_0_1px_0_0_rgba(241,240,236,0.08)] transition-all duration-200 hover:-translate-y-0.5"
+              href="#vivencia-corporativa"
+              className="hover:text-white transition-colors duration-200"
             >
-              Os 36 Rounds
+              Vivências de Boxe
+            </a>
+            <a
+              href="#biomecanica-boxe"
+              className="hover:text-white transition-colors duration-200"
+            >
+              BIOMECÂNICA DO BOXE
+            </a>
+            <a
+              href="#treino-executivo"
+              className="hover:text-white transition-colors duration-200"
+            >
+              Treino Executivo
             </a>
             <a href="#contato" className="hover:text-white transition-colors duration-200">
               Contato
             </a>
           </nav>
 
-          <div className="hidden sm:flex items-center gap-3">
+          <div className="lg:hidden text-xs font-display font-bold tracking-[0.18em] uppercase text-[#F1F0EC]/90">
+            Eduardo Amaral
+          </div>
+
+          <div className="hidden sm:flex items-center gap-3 ml-auto lg:ml-0">
             <a
               href={whatsappDirectUrl}
               target="_blank"
@@ -265,46 +252,32 @@ export default function App() {
           <div className="lg:hidden bg-[#26241F] border-b border-[#45413A] px-4 pt-3 pb-6 space-y-3 text-left shadow-2xl">
             <div className="flex flex-col space-y-1.5 text-base font-medium">
               <a
-                href="#inicio"
+                href="#apresentacao"
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3.5 py-2.5 rounded-lg hover:bg-[#35322B] transition-colors duration-200"
               >
-                A Vivência
+                Apresentação
               </a>
               <a
-                href="#aquecimento"
+                href="#vivencia-corporativa"
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3.5 py-2.5 rounded-lg hover:bg-[#35322B] transition-colors duration-200"
               >
-                O Aquecimento
+                Vivências de Boxe
               </a>
               <a
-                href="#mentor"
+                href="#biomecanica-boxe"
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3.5 py-2.5 rounded-lg hover:bg-[#35322B] transition-colors duration-200"
               >
-                Por Que Estou Aqui? (O Mentor)
+                BIOMECÂNICA DO BOXE
               </a>
               <a
-                href="#primeiro-ritmo"
+                href="#treino-executivo"
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3.5 py-2.5 rounded-lg hover:bg-[#35322B] transition-colors duration-200"
               >
-                O Primeiro Ritmo
-              </a>
-              <a
-                href="#pilares"
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3.5 py-2.5 rounded-lg hover:bg-[#35322B] transition-colors duration-200"
-              >
-                Os 6 Pilares
-              </a>
-              <a
-                href="#rounds"
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3.5 py-2.5 rounded-lg bg-[#35322B] text-white font-semibold border-l-4 border-[#AA231C]"
-              >
-                Os 36 Rounds Interativos
+                Treino Executivo
               </a>
               <a
                 href="#contato"
@@ -322,7 +295,7 @@ export default function App() {
                 className="btn-premium-crimson w-full inline-flex items-center justify-center gap-2 text-white font-semibold text-sm px-5 py-3 rounded-lg"
               >
                 <MessageCircle className="w-4 h-4" />
-                <span>Falar com Eduardo Amaral</span>
+                <span>Vamos Treinar?</span>
               </a>
             </div>
           </div>
@@ -330,584 +303,485 @@ export default function App() {
       </header>
 
       <main className="flex-grow">
-        {/* HERO SECTION — Faithful to Slide 1 ("VIVÊNCIA DE BOXE - A CONSTÂNCIA EM EQUILÍBRIO") */}
-        <section id="inicio" className="relative overflow-hidden">
-          {/* Split background inspired by Slide 1 (#45413A left panel + #26241F right stage) */}
-          <div className="hidden lg:block absolute inset-y-0 left-0 w-[34%] bg-[#45413A] border-r border-[#544F45]/50 shadow-[12px_0_36px_-12px_rgba(0,0,0,0.45)] pointer-events-none" />
-          {/* Subtle Ambient Studio Illumination */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -top-28 right-1/4 w-[520px] h-[520px] rounded-full bg-[#B5251E]/[0.07] blur-3xl"
-          />
-
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
-              {/* Left Column: Logo Plaque + Mentor Portrait Card (on the #45413A panel on desktop) */}
-              <div className="lg:col-span-4 flex flex-col items-start space-y-6">
-                {/* Official White Rounded Logo Card from Slide 1 */}
-                <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-[0_4px_8px_rgba(0,0,0,0.25),0_18px_38px_-10px_rgba(0,0,0,0.5),inset_0_1px_0_0_rgba(255,255,255,1)] w-full max-w-xs border border-white/90 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_24px_48px_-12px_rgba(0,0,0,0.6)]">
+        {/* SECTION 1: APRESENTAÇÃO — Quem é Eduardo Amaral, sua história e "Por que estou aqui?" */}
+        <section id="apresentacao" className="bg-[#1C1A17] text-white py-20 sm:py-24 lg:py-28 border-b border-[#45413A]">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-14">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              {/* Left Column: Portrait & Official Identity */}
+              <div className="lg:col-span-4 flex flex-col items-start space-y-5">
+                <div className="w-full max-w-[290px] aspect-[4/4.5] rounded-2xl overflow-hidden border-2 border-[#B5251E] shadow-[0_14px_34px_-8px_rgba(0,0,0,0.5)] bg-[#35322B]">
                   <img
-                    src="/logo-light.svg"
-                    alt="Eduardo Amaral — Mentorias e Boxe"
-                    className="w-full h-auto"
+                    src="/eduardo-amaral.jpg"
+                    alt="Eduardo Amaral — Apresentação e Trajetória"
+                    className="w-full h-full object-cover object-top transition-transform duration-500 ease-out hover:scale-[1.03]"
                   />
                 </div>
-
-                {/* High-Res Mentor Card with 3D Depth & Rim Lighting */}
-                <div className="card-3d-dark w-full max-w-xs rounded-2xl overflow-hidden border border-[#544F45]/70 text-left group">
-                  <div className="relative aspect-[4/4.5] overflow-hidden bg-[#35322B]">
-                    <img
-                      src="/eduardo-amaral.jpg"
-                      alt="Eduardo Amaral — Instrutor Técnico Federação Gaúcha de Boxe"
-                      className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#26241F] via-[#26241F]/15 to-transparent" />
-                    <div className="absolute bottom-3.5 left-4 right-4 text-left">
-                      <span className="inline-block bg-[#AA231C] text-white text-[11px] font-bold uppercase tracking-widest px-2.5 py-1 rounded shadow-[0_4px_12px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.2)]">
-                        Federação Gaúcha de Boxe — FGB
-                      </span>
-                    </div>
-                  </div>
-                  <div className="p-5 sm:p-6 space-y-2 text-left">
-                    <h2 className="font-display font-bold text-lg tracking-wide text-white leading-snug">
-                      {MENTOR_DATA.name}
-                    </h2>
-                    <p className="text-xs text-[#F1F0EC]/80 leading-relaxed">{MENTOR_DATA.role}</p>
-                    <div className="w-10 h-0.5 bg-[#AA231C] my-2" />
-                    <p className="text-[11px] font-semibold tracking-widest uppercase text-[#F1F0EC]/90">
-                      {MENTOR_DATA.experience}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: Slide 1 Typography & Call to Action — Strictly Left Aligned */}
-              <div className="lg:col-span-8 lg:pl-10 space-y-7 sm:space-y-8 text-left">
-                <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#35322B]/90 border border-[#AA231C]/50 text-xs font-semibold tracking-widest uppercase text-[#F1F0EC] shadow-[0_4px_14px_-2px_rgba(0,0,0,0.35),inset_0_1px_0_0_rgba(241,240,236,0.1)]">
-                  <span className="w-2 h-2 rounded-full bg-[#AA231C] animate-ping shrink-0" />
-                  <span>Mentorias Corporativas • Palestras • Vivências Práticas</span>
-                </div>
-
-                <div className="space-y-2">
-                  <h1 className="font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl tracking-tight text-white leading-[1.05] drop-shadow-[0_4px_18px_rgba(0,0,0,0.35)]">
-                    VIVÊNCIA
-                    <br />
-                    <span className="inline-block">DE </span>{' '}
-                    <span className="inline-block relative pb-2">
-                      BOXE
-                      <span className="absolute bottom-0 left-0 right-0 h-1.5 bg-[#B5251E] rounded-full shadow-[0_2px_10px_rgba(181,37,30,0.6)]" />
-                    </span>
-                  </h1>
-                </div>
-
-                {/* Exact L-Shaped Crimson Bracket from Slide 1 */}
-                <div className="max-w-md text-left pt-1">
-                  <div className="border-l-[3px] border-[#B5251E] pl-4 sm:pl-5">
-                    <div className="border-b-[3px] border-[#B5251E] pb-2.5 mb-4">
-                      <p className="font-display font-semibold text-base sm:text-lg tracking-[0.08em] uppercase text-white leading-snug">
-                        A CONSTÂNCIA EM EQUILÍBRIO
-                      </p>
-                    </div>
-                    <div className="space-y-1.5 font-display text-lg sm:text-xl tracking-wider text-[#F1F0EC]/95 font-medium">
-                      <p>SE SENTE...</p>
-                      <p>SE CONECTA...</p>
-                      <p>SE TREINA...</p>
-                    </div>
-                  </div>
-                </div>
-
-                <p className="text-base sm:text-lg text-[#F1F0EC]/85 max-w-[60ch] leading-[1.75] text-editorial-justify">
-                  Conduzindo vivências de boxe e transformando o ritmo corporativo em{' '}
-                  <strong className="text-white font-semibold">rounds mais leves</strong>. Uma
-                  metodologia proprietária de <strong className="text-white">36 Rounds</strong> que
-                  une a nobre arte do ringue à tomada de decisão, liderança e equilíbrio emocional
-                  nas organizações.
-                </p>
-
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-start gap-4 pt-2">
-                  <a
-                    href="#rounds"
-                    className="btn-premium-crimson w-full sm:w-auto inline-flex items-center justify-center gap-3 text-white font-display font-bold text-sm uppercase tracking-wider px-7 py-4 rounded-xl"
-                  >
-                    <span>Explorar os 36 Rounds</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
-                  <a
-                    href={whatsappDirectUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-premium-dark w-full sm:w-auto inline-flex items-center justify-center gap-3 text-white font-display font-semibold text-sm uppercase tracking-wider px-7 py-4 rounded-xl border border-[#544F45]/80 hover:border-[#F1F0EC]/40"
-                  >
-                    <MessageCircle className="w-4 h-4 text-[#B5251E]" />
-                    <span>Levar para Minha Empresa</span>
-                  </a>
-                </div>
-
-                {/* Stats Bar */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-7 border-t border-[#45413A]/80 text-left">
-                  <div className="card-3d-dark rounded-xl p-4 sm:p-5 border border-[#45413A]/90 hover:border-[#544F45]">
-                    <p className="font-display font-extrabold text-2xl sm:text-3xl text-white leading-none">
-                      35 <span className="text-[#B5251E] text-base sm:text-lg">Anos</span>
-                    </p>
-                    <p className="text-xs text-[#F1F0EC]/80 mt-2 leading-snug">
-                      De Constância em Equilíbrio
-                    </p>
-                  </div>
-                  <div className="card-3d-dark rounded-xl p-4 sm:p-5 border border-[#45413A]/90 hover:border-[#544F45]">
-                    <p className="font-display font-extrabold text-2xl sm:text-3xl text-white leading-none">
-                      36 <span className="text-[#B5251E] text-base sm:text-lg">Rounds</span>
-                    </p>
-                    <p className="text-xs text-[#F1F0EC]/80 mt-2 leading-snug">
-                      Fusão Corporativo & Ringue
-                    </p>
-                  </div>
-                  <div className="card-3d-dark rounded-xl p-4 sm:p-5 border border-[#45413A]/90 hover:border-[#544F45]">
-                    <p className="font-display font-extrabold text-2xl sm:text-3xl text-white leading-none">
-                      6 <span className="text-[#B5251E] text-base sm:text-lg">Pilares</span>
-                    </p>
-                    <p className="text-xs text-[#F1F0EC]/80 mt-2 leading-snug">
-                      Eixos de Evolução Prática
-                    </p>
-                  </div>
-                  <div className="card-3d-dark rounded-xl p-4 sm:p-5 border border-[#45413A]/90 hover:border-[#544F45]">
-                    <p className="font-display font-extrabold text-2xl sm:text-3xl text-white leading-none">
-                      FGB
-                    </p>
-                    <p className="text-xs text-[#F1F0EC]/80 mt-2 leading-snug">
-                      Instrutor Técnico Oficial
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* SECTION 2: O AQUECIMENTO — Faithful to Slide 2 */}
-        <section id="aquecimento" className="relative bg-white text-[#26241F] py-20 sm:py-24 lg:py-28">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-[#544F45]/15 pb-8 mb-12 text-left">
-              <div className="space-y-3 text-left max-w-2xl">
-                <span className="inline-block text-xs font-bold tracking-[0.22em] uppercase text-[#544F45]">
-                  PREPARAÇÃO ANTES DO PRIMEIRO SOAR DO SINO
-                </span>
-                <h2 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-[0.04em] text-[#B5251E] uppercase leading-[1.08]">
-                  {WARMUP_DATA.title}
-                </h2>
-                <p className="text-sm sm:text-base text-[#544F45] leading-[1.72] text-editorial-justify">
-                  Antes de qualquer decisão estratégica ou movimento no ringue, o corpo e a mente
-                  precisam encontrar o ponto exato entre tranquilidade e agilidade.
-                </p>
-              </div>
-
-              {/* Guided Warmup Interactive Trigger */}
-              <div className="flex flex-wrap items-center justify-start gap-3 shrink-0">
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (warmupActive) {
-                      setWarmupActive(false);
-                    } else {
-                      setWarmupStep(0);
-                      setWarmupActive(true);
-                    }
-                  }}
-                  className="btn-premium-dark inline-flex items-center gap-2.5 text-white text-xs font-display font-bold uppercase tracking-wider px-5 py-3.5 rounded-full cursor-pointer"
-                >
-                  {warmupActive ? (
-                    <>
-                      <Pause className="w-3.5 h-3.5 text-[#B5251E]" />
-                      <span>Pausar Aquecimento Guiado</span>
-                    </>
-                  ) : (
-                    <>
-                      <Play className="w-3.5 h-3.5 text-[#B5251E]" />
-                      <span>Iniciar Aquecimento Guiado (6 Passos)</span>
-                    </>
-                  )}
-                </button>
-                {warmupStep > 0 && (
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setWarmupActive(false);
-                      setWarmupStep(0);
-                    }}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#544F45] hover:text-[#26241F] transition-colors duration-200 cursor-pointer"
-                  >
-                    <RotateCcw className="w-3.5 h-3.5" />
-                    <span>Reiniciar</span>
-                  </button>
-                )}
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-              {/* Column 1: UM ROUND DE EQUILÍBRIO */}
-              <div className="surface-stage-light bg-[#F1F0EC] rounded-2xl p-6 sm:p-9 lg:p-10 border border-[#544F45]/15 flex flex-col items-start text-left">
-                <div className="border-t-[3px] border-[#26241F] pt-2.5 mb-7 inline-block">
-                  <h3 className="font-display font-bold text-lg sm:text-xl tracking-wider text-[#B5251E] uppercase">
-                    {WARMUP_DATA.leftColumn.heading}
-                  </h3>
-                </div>
-
-                <ul className="w-full space-y-3.5">
-                  {WARMUP_DATA.leftColumn.steps.map((step, idx) => {
-                    const isCurrent = warmupActive && warmupStep === idx;
-                    return (
-                      <li
-                        key={step.label}
-                        onClick={() => setWarmupStep(idx)}
-                        className={`p-4 sm:px-5 rounded-xl text-left border-l-4 transition-all duration-300 ease-out cursor-pointer ${
-                          isCurrent
-                            ? 'bg-[#B5251E] text-white border-[#26241F] shadow-[0_10px_24px_-6px_rgba(181,37,30,0.45)] translate-x-1'
-                            : warmupStep === idx
-                            ? 'bg-white border-[#B5251E] text-[#26241F] shadow-[0_6px_18px_-4px_rgba(38,36,31,0.1)]'
-                            : 'bg-white/90 hover:bg-white border-transparent hover:border-[#B5251E]/60 text-[#26241F] shadow-[0_2px_8px_-2px_rgba(38,36,31,0.06),inset_0_1px_0_rgba(255,255,255,0.8)] hover:shadow-[0_8px_20px_-6px_rgba(38,36,31,0.12)] hover:-translate-y-0.5'
-                        }`}
-                      >
-                        <p className="font-display font-semibold text-sm sm:text-base tracking-wider uppercase leading-snug">
-                          {step.label}
-                        </p>
-                        <p
-                          className={`text-xs sm:text-sm mt-1 leading-relaxed ${
-                            isCurrent ? 'text-white/90' : 'text-[#544F45]'
-                          }`}
-                        >
-                          {step.detail}
-                        </p>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-
-              {/* Column 2: TRANQUILIDADE / AGILIDADE */}
-              <div className="surface-stage-light bg-[#F1F0EC] rounded-2xl p-6 sm:p-9 lg:p-10 border border-[#544F45]/15 flex flex-col items-start text-left">
-                <div className="border-t-[3px] border-[#26241F] pt-2.5 mb-7 inline-block">
-                  <h3 className="font-display font-bold text-lg sm:text-xl tracking-wider text-[#B5251E] uppercase">
-                    {WARMUP_DATA.rightColumn.heading}
-                  </h3>
-                </div>
-
-                <ul className="w-full space-y-3.5">
-                  {WARMUP_DATA.rightColumn.steps.map((step, idx) => {
-                    const isCurrent = warmupActive && warmupStep === idx;
-                    return (
-                      <li
-                        key={step.label}
-                        onClick={() => setWarmupStep(idx)}
-                        className={`p-4 sm:px-5 rounded-xl text-left border-l-4 transition-all duration-300 ease-out cursor-pointer ${
-                          isCurrent
-                            ? 'bg-[#26241F] text-white border-[#B5251E] shadow-[0_10px_24px_-6px_rgba(38,36,31,0.4)] translate-x-1'
-                            : warmupStep === idx
-                            ? 'bg-white border-[#26241F] text-[#26241F] shadow-[0_6px_18px_-4px_rgba(38,36,31,0.1)]'
-                            : 'bg-white/90 hover:bg-white border-transparent hover:border-[#26241F]/50 text-[#26241F] shadow-[0_2px_8px_-2px_rgba(38,36,31,0.06),inset_0_1px_0_rgba(255,255,255,0.8)] hover:shadow-[0_8px_20px_-6px_rgba(38,36,31,0.12)] hover:-translate-y-0.5'
-                        }`}
-                      >
-                        <p className="font-display font-semibold text-sm sm:text-base tracking-wider uppercase leading-snug">
-                          {step.label}
-                        </p>
-                        <p
-                          className={`text-xs sm:text-sm mt-1 leading-relaxed ${
-                            isCurrent ? 'text-white/85' : 'text-[#544F45]'
-                          }`}
-                        >
-                          {step.detail}
-                        </p>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* SECTION 3: POR QUE ESTOU AQUI? & ENTÃO, VAMOS TREINAR? — Faithful to Slides 3 & 5 */}
-        <section id="mentor" className="bg-[#F1F0EC] text-[#26241F] py-20 sm:py-24 lg:py-28 border-t border-[#544F45]/15">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14 sm:space-y-16">
-            {/* Top Row: Slide 3 Layout */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-              <div className="lg:col-span-7 space-y-5 text-left">
-                <span className="inline-block text-xs font-bold tracking-[0.2em] uppercase text-[#544F45]">
-                  TRAJETÓRIA, TÉCNICA E PROPÓSITO
-                </span>
-                <h2 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl text-[#B5251E] tracking-tight uppercase leading-[1.08]">
-                  {MENTOR_DATA.headline}
-                </h2>
-                <p className="text-base sm:text-lg text-[#35322B] leading-[1.75] text-editorial-justify">
-                  Ao longo de <strong>35 anos dedicados ao boxe</strong> e à formação técnica pela{' '}
-                  <strong>Federação Gaúcha de Boxe (FGB)</strong>, Eduardo Amaral compreendeu que o
-                  ringue é o laboratório mais fiel do comportamento humano sob pressão.
-                </p>
-                <p className="text-base text-[#544F45] leading-[1.75] text-editorial-justify">
-                  Na vida executiva e corporativa, profissionais enfrentam diariamente rounds
-                  invisíveis: prazos curtos, decisões em milissegundos, conversas difíceis, metas
-                  exigentes e a necessidade constante de manter a guarda emocional firme sem perder a
-                  empatia.
-                </p>
-              </div>
-
-              {/* Exact Dark Olive-Charcoal Card from Slide 3 with 3D Depth */}
-              <div className="lg:col-span-5">
-                <div className="card-3d-olive text-white rounded-2xl p-7 sm:p-10 border border-[#544F45]/50 space-y-4 text-left">
-                  <h3 className="font-display font-bold text-2xl sm:text-3xl tracking-wide uppercase leading-snug">
+                <div className="text-left space-y-1">
+                  <p className="font-display font-bold text-lg uppercase tracking-wide text-white">
                     {MENTOR_DATA.name}
+                  </p>
+                  <p className="text-xs sm:text-sm font-semibold text-[#F1F0EC]/80">
+                    Instrutor Técnico certificado pela Federação Gaúcha de Boxe (FGB).
+                  </p>
+                </div>
+              </div>
+
+              {/* Right Column: Profissional, Trajetória e "Por Que Estou Aqui?" integrado */}
+              <div className="lg:col-span-8 space-y-5 text-left">
+                <span className="inline-block text-xs font-bold tracking-[0.2em] uppercase text-[#B5251E]">
+                  APRESENTAÇÃO • QUEM É EDUARDO AMARAL E SUA TRAJETÓRIA
+                </span>
+                <h2 className="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight uppercase leading-[1.08]">
+                  EDUARDO AMARAL
+                </h2>
+                <p className="text-base sm:text-lg text-[#F1F0EC]/90 leading-[1.75] text-editorial-justify">
+                  Instrutor Técnico certificado pela Federação Gaúcha de Boxe (FGB) e especialista em vivências práticas, Eduardo Amaral construiu uma trajetória sólida marcada pela disciplina, constância e respeito ao desenvolvimento humano. Com 35 anos de ringue, ele traduz a inteligência do boxe em treinamentos de alta performance, levando clareza, estratégia e resiliência para equipes corporativas e instituições de ensino.
+                </p>
+
+                <div className="pt-2 space-y-3 border-t border-[#45413A]">
+                  <h3 className="font-display font-extrabold text-xl sm:text-2xl text-[#B5251E] tracking-tight uppercase leading-snug">
+                    {MENTOR_DATA.headline}
                   </h3>
-                  <div className="space-y-1.5 text-[#F1F0EC]/90 text-base sm:text-lg leading-relaxed">
-                    <p>{MENTOR_DATA.role}</p>
-                    <p className="font-medium">{MENTOR_DATA.organization}</p>
-                  </div>
-                  <div className="w-14 h-1 bg-[#B5251E] my-4 rounded-full" />
-                  <p className="font-display font-medium text-sm sm:text-base tracking-[0.12em] uppercase text-[#F1F0EC]">
-                    {MENTOR_DATA.experience}
+                  <p className="text-base sm:text-lg text-[#F1F0EC]/90 leading-[1.75] text-editorial-justify">
+                    Ao longo de 35 anos dedicados ao boxe e à formação técnica pela Federação Gaúcha de Boxe (FGB), compreendi que o ringue é o laboratório mais fiel do comportamento humano sob pressão.
+                  </p>
+                  <p className="text-base text-[#F1F0EC]/85 leading-[1.75] text-editorial-justify">
+                    Na vida executiva, profissionais enfrentam diariamente rounds invisíveis: prazos curtos, decisões em milissegundos, conversas difíceis, metas exigentes e a necessidade constante de manter a guarda emocional firme sem perder a empatia.
+                  </p>
+                  <p className="text-base text-[#F1F0EC]/85 leading-[1.75] text-editorial-justify">
+                    Meu trabalho é traduzir essa inteligência do ringue para o ambiente corporativo. Ensino equipes a manter a clareza no caos, a não levar golpes emocionais e a trocar a reação impulsiva pela ação estratégica.
+                  </p>
+                  <p className="text-base font-medium text-white leading-[1.75] text-editorial-justify">
+                    O resultado? Transformo a rotina pesada em rounds mais leves.
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Center Banner from Slide 3 — Clean Left-Aligned Editorial Callout */}
-            <div className="card-3d-light bg-white rounded-2xl p-7 sm:p-10 lg:p-12 border border-[#544F45]/15 text-left space-y-3">
+            {/* Center Banner Maintained as Requested */}
+            <div className="card-3d-dark rounded-2xl p-7 sm:p-10 lg:p-12 border border-[#544F45]/50 text-left space-y-3">
               <div className="inline-block border-t-[3px] border-[#B5251E] pt-3">
-                <p className="font-display font-bold text-lg sm:text-2xl tracking-wider uppercase text-[#26241F] leading-snug">
+                <p className="font-display font-bold text-lg sm:text-2xl tracking-wider uppercase text-white leading-snug">
                   {MENTOR_DATA.missionTitle}
                 </p>
               </div>
-              <p className="font-display font-medium text-base sm:text-xl tracking-wide uppercase text-[#35322B] max-w-3xl leading-relaxed">
+              <p className="font-display font-medium text-base sm:text-xl tracking-wide uppercase text-[#F1F0EC]/90 max-w-3xl leading-relaxed">
                 {MENTOR_DATA.missionSubtitle}
               </p>
             </div>
+          </div>
+        </section>
 
-            {/* Slide 5 Section: ENTÃO, VAMOS TREINAR? + Formats */}
-            <div className="surface-stage-dark grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center text-white rounded-3xl p-7 sm:p-10 lg:p-12 border border-[#45413A]/80">
-              <div className="lg:col-span-4 flex flex-col items-start">
-                <div className="w-full max-w-[260px] sm:max-w-[280px] aspect-square rounded-2xl overflow-hidden border-2 border-[#B5251E] shadow-[0_14px_34px_-8px_rgba(0,0,0,0.6)] bg-[#45413A]">
-                  <img
-                    src="/eduardo-amaral.jpg"
-                    alt="Eduardo Amaral — Então, vamos treinar?"
-                    className="w-full h-full object-cover object-top transition-transform duration-500 ease-out hover:scale-[1.03]"
-                  />
+        {/* SECTION 2: VIVÊNCIAS DE BOXE / TREINAMENTO CORPORATIVO (Hero + Do Ringue ao Mundo Corporativo) */}
+        <section id="vivencia-corporativa" className="relative overflow-hidden">
+          {/* Part A: Vivência de Boxe / Treinamento Corporativo */}
+          <div className="relative overflow-hidden">
+            {/* Split background inspired by Slide 1 (#45413A left panel + #26241F right stage) */}
+            <div className="hidden lg:block absolute inset-y-0 left-0 w-[34%] bg-[#45413A] border-r border-[#544F45]/50 shadow-[12px_0_36px_-12px_rgba(0,0,0,0.45)] pointer-events-none" />
+            {/* Subtle Ambient Studio Illumination */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -top-28 right-1/4 w-[520px] h-[520px] rounded-full bg-[#B5251E]/[0.07] blur-3xl"
+            />
+
+            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+                {/* Left Column: Logo Plaque + Mentor Portrait Card (on the #45413A panel on desktop) */}
+                <div className="lg:col-span-4 flex flex-col items-start space-y-6">
+                  {/* Official White Rounded Logo Card from Slide 1 */}
+                  <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-[0_4px_8px_rgba(0,0,0,0.25),0_18px_38px_-10px_rgba(0,0,0,0.5),inset_0_1px_0_0_rgba(255,255,255,1)] w-full max-w-xs border border-white/90 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_24px_48px_-12px_rgba(0,0,0,0.6)]">
+                    <img
+                      src="/logo-light.svg"
+                      alt="Eduardo Amaral — Mentorias e Boxe"
+                      className="w-full h-auto"
+                    />
+                  </div>
+
+                  {/* High-Res Mentor Card with 3D Depth & Rim Lighting */}
+                  <div className="card-3d-dark w-full max-w-xs rounded-2xl overflow-hidden border border-[#544F45]/70 text-left group">
+                    <div className="relative aspect-[4/4.5] overflow-hidden bg-[#35322B]">
+                      <img
+                        src="/eduardo-amaral.jpg"
+                        alt="Eduardo Amaral — Instrutor Técnico Federação Gaúcha de Boxe"
+                        className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#26241F] via-[#26241F]/15 to-transparent" />
+                      <div className="absolute bottom-3.5 left-4 right-4 text-left">
+                        <span className="inline-block bg-[#AA231C] text-white text-[11px] font-bold uppercase tracking-widest px-2.5 py-1 rounded shadow-[0_4px_12px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.2)]">
+                          Federação Gaúcha de Boxe (FGB)
+                        </span>
+                      </div>
+                    </div>
+                    <div className="p-5 sm:p-6 space-y-2 text-left">
+                      <h2 className="font-display font-bold text-lg tracking-wide text-white leading-snug">
+                        {MENTOR_DATA.name}
+                      </h2>
+                      <p className="text-xs text-[#F1F0EC]/80 leading-relaxed">
+                        Instrutor Técnico de Boxe
+                      </p>
+                      <div className="w-10 h-0.5 bg-[#AA231C] my-2" />
+                      <p className="text-[11px] font-semibold tracking-widest uppercase text-[#F1F0EC]/90">
+                        {MENTOR_DATA.experience}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Column: Slide 1 Typography & Call to Action */}
+                <div className="lg:col-span-8 lg:pl-10 space-y-7 sm:space-y-8 text-left">
+                  <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#35322B]/90 border border-[#AA231C]/50 text-xs font-semibold tracking-widest uppercase text-[#F1F0EC] shadow-[0_4px_14px_-2px_rgba(0,0,0,0.35),inset_0_1px_0_0_rgba(241,240,236,0.1)]">
+                    <span className="w-2 h-2 rounded-full bg-[#AA231C] animate-ping shrink-0" />
+                    <span>Vivências de Boxe • Treinamento Coorporativo • Alta Performance</span>
+                  </div>
+
+                  <div className="space-y-2">
+                    <h1 className="font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl tracking-tight text-white leading-[1.05] drop-shadow-[0_4px_18px_rgba(0,0,0,0.35)]">
+                      VIVÊNCIA
+                      <br />
+                      <span className="inline-block">DE </span>{' '}
+                      <span className="inline-block relative pb-2">
+                        BOXE
+                        <span className="absolute bottom-0 left-0 right-0 h-1.5 bg-[#B5251E] rounded-full shadow-[0_2px_10px_rgba(181,37,30,0.6)]" />
+                      </span>
+                    </h1>
+                  </div>
+
+                  {/* Exact L-Shaped Crimson Bracket from Slide 1 */}
+                  <div className="max-w-md text-left pt-1">
+                    <div className="border-l-[3px] border-[#B5251E] pl-4 sm:pl-5">
+                      <div className="border-b-[3px] border-[#B5251E] pb-2.5 mb-4">
+                        <p className="font-display font-semibold text-base sm:text-lg tracking-[0.08em] uppercase text-white leading-snug">
+                          A CONSTÂNCIA EM EQUILÍBRIO
+                        </p>
+                      </div>
+                      <div className="space-y-1.5 font-display text-lg sm:text-xl tracking-wider text-[#F1F0EC]/95 font-medium">
+                        <p>SE SENTE...</p>
+                        <p>SE CONECTA...</p>
+                        <p>SE TREINA...</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className="text-base sm:text-lg text-[#F1F0EC]/85 max-w-[60ch] leading-[1.75] text-editorial-justify">
+                    Conduzindo vivências de boxe e transformando rotinas em{' '}
+                    <strong className="text-white font-semibold">rounds mais leves</strong>. Uma
+                    metodologia proprietária de <strong className="text-white">36 Rounds</strong> que
+                    une a nobre arte do ringue à tomada de decisão, liderança e equilíbrio emocional
+                    em empresas e instituições de ensino.
+                  </p>
+
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-start gap-4 pt-2">
+                    <a
+                      href={whatsappDirectUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-premium-dark w-full sm:w-auto inline-flex items-center justify-center gap-3 text-white font-display font-semibold text-sm uppercase tracking-wider px-7 py-4 rounded-xl border border-[#544F45]/80 hover:border-[#F1F0EC]/40"
+                    >
+                      <MessageCircle className="w-4 h-4 text-[#B5251E]" />
+                      <span>Levar para Minha Empresa</span>
+                    </a>
+                  </div>
+
+                  {/* Stats Bar */}
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-7 border-t border-[#45413A]/80 text-left">
+                    <div className="card-3d-dark rounded-xl p-4 sm:p-5 border border-[#45413A]/90 hover:border-[#544F45]">
+                      <p className="font-display font-extrabold text-2xl sm:text-3xl text-white leading-none">
+                        35 <span className="text-[#B5251E] text-base sm:text-lg">Anos</span>
+                      </p>
+                      <p className="text-xs text-[#F1F0EC]/80 mt-2 leading-snug">
+                        De Constância em Equilíbrio
+                      </p>
+                    </div>
+                    <div className="card-3d-dark rounded-xl p-4 sm:p-5 border border-[#45413A]/90 hover:border-[#544F45]">
+                      <p className="font-display font-extrabold text-2xl sm:text-3xl text-white leading-none">
+                        36 <span className="text-[#B5251E] text-base sm:text-lg">Rounds</span>
+                      </p>
+                      <p className="text-xs text-[#F1F0EC]/80 mt-2 leading-snug">
+                        Fusão Corporativo & Ringue
+                      </p>
+                    </div>
+                    <div className="card-3d-dark rounded-xl p-4 sm:p-5 border border-[#45413A]/90 hover:border-[#544F45]">
+                      <p className="font-display font-extrabold text-2xl sm:text-3xl text-white leading-none">
+                        6 <span className="text-[#B5251E] text-base sm:text-lg">Pilares</span>
+                      </p>
+                      <p className="text-xs text-[#F1F0EC]/80 mt-2 leading-snug">
+                        Eixos de Evolução Prática
+                      </p>
+                    </div>
+                    <div className="card-3d-dark rounded-xl p-4 sm:p-5 border border-[#45413A]/90 hover:border-[#544F45]">
+                      <p className="font-display font-extrabold text-2xl sm:text-3xl text-white leading-none">
+                        FGB
+                      </p>
+                      <p className="text-xs text-[#F1F0EC]/80 mt-2 leading-snug">
+                        Instrutor Técnico de Boxe
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="lg:col-span-8 space-y-6 text-left">
-                <h3 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-[#B5251E] uppercase tracking-wide leading-[1.1]">
-                  {MENTOR_DATA.callToAction}
-                </h3>
-                <p className="text-[#F1F0EC]/85 text-base sm:text-lg leading-[1.75] text-editorial-justify">
-                  A metodologia <strong>Vivência de Boxe</strong> é adaptada para a realidade da sua
-                  organização ou jornada individual, sem necessidade de experiência prévia em artes
-                  marciais, com total segurança, leveza e aplicação imediata no trabalho.
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
-                  <div className="card-3d-dark p-5 rounded-xl border border-[#544F45]/60 hover:border-[#B5251E]/70">
-                    <p className="font-display font-bold text-sm uppercase text-white mb-1.5">
-                      1. Vivência Corporativa
-                    </p>
-                    <p className="text-xs sm:text-[13px] text-[#F1F0EC]/80 leading-relaxed text-editorial-justify">
-                      Imersão prática e reflexiva para times, convenções e eventos de liderança.
-                    </p>
+            </div>
+          </div>
+
+          {/* Part B: Do Ringue ao Mundo Corporativo (integrado em Vivências de Boxe / Treinamento Corporativo) */}
+          <div id="primeiro-ritmo" className="relative overflow-hidden bg-[#26241F] text-white py-20 sm:py-24 lg:py-28 border-t border-[#45413A]">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute top-1/3 -left-32 w-96 h-96 rounded-full bg-[#B5251E]/[0.06] blur-3xl"
+            />
+            <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+                {/* Left Column: Cadência do Boxe aplicada à Liderança e Mundo Corporativo */}
+                <div className="lg:col-span-6 space-y-7 text-left">
+                  <div className="space-y-3">
+                    <div className="inline-flex items-center gap-2 bg-[#B5251E] text-white px-3.5 py-1.5 rounded text-xs font-bold tracking-[0.18em] uppercase shadow-sm">
+                      <Target className="w-4 h-4 text-white shrink-0" />
+                      <span>{FIRST_RHYTHM_DATA.badge}</span>
+                    </div>
+                    <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-[#B5251E] uppercase tracking-wide leading-[1.12]">
+                      {FIRST_RHYTHM_DATA.title}
+                    </h2>
                   </div>
-                  <div className="card-3d-dark p-5 rounded-xl border border-[#544F45]/60 hover:border-[#B5251E]/70">
-                    <p className="font-display font-bold text-sm uppercase text-white mb-1.5">
-                      2. Mentoria Executiva
-                    </p>
-                    <p className="text-xs sm:text-[13px] text-[#F1F0EC]/80 leading-relaxed text-editorial-justify">
-                      Acompanhamento focado em tomada de decisão sob pressão, foco e equilíbrio.
-                    </p>
-                  </div>
-                  <div className="card-3d-dark p-5 rounded-xl border border-[#544F45]/60 hover:border-[#B5251E]/70">
-                    <p className="font-display font-bold text-sm uppercase text-white mb-1.5">
-                      3. Palestras & Workshops
-                    </p>
-                    <p className="text-xs sm:text-[13px] text-[#F1F0EC]/80 leading-relaxed text-editorial-justify">
-                      Os 36 Rounds aplicados à cultura organizacional, com resiliência e alta performance.
-                    </p>
+
+                  <ul className="space-y-3.5">
+                    {FIRST_RHYTHM_DATA.points.map((point, index) => {
+                      const isSelectedPhase =
+                        activeTacticalIndex === index % FIRST_RHYTHM_DATA.tacticalPillars.length;
+                      return (
+                        <li
+                          key={point}
+                          onClick={() => setActiveTacticalIndex(index % FIRST_RHYTHM_DATA.tacticalPillars.length)}
+                          className={`card-3d-dark flex items-start gap-3.5 border rounded-xl px-5 py-4 text-left cursor-pointer ${
+                            isSelectedPhase
+                              ? 'border-[#B5251E]/85 bg-[#35322B]'
+                              : 'border-[#45413A] hover:border-[#B5251E]/60'
+                          }`}
+                        >
+                          <span className="text-white font-bold text-lg leading-snug shrink-0 mt-0.5">
+                            •
+                          </span>
+                          <p className="text-sm sm:text-base font-medium text-white leading-relaxed text-editorial-justify">
+                            {point}
+                          </p>
+                        </li>
+                      );
+                    })}
+                  </ul>
+
+                  <div className="pt-2 flex flex-wrap items-center gap-4">
+                    <span className="text-xs tracking-widest uppercase text-[#F1F0EC]/65">
+                      {FIRST_RHYTHM_DATA.subtitle}
+                    </span>
                   </div>
                 </div>
-                <div className="pt-2">
-                  <a
-                    href="#contato"
-                    className="btn-premium-crimson inline-flex items-center gap-2.5 text-white font-display font-bold text-sm uppercase tracking-wider px-7 py-3.5 rounded-xl"
-                  >
-                    <span>Solicitar Proposta de Vivência</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
+
+                {/* Right Column: Painel Tático Interativo — Anatomia do Round (Ringue x Mundo Corporativo) */}
+                <div className="lg:col-span-6 text-left">
+                  <div className="surface-stage-dark p-6 sm:p-8 rounded-2xl border border-[#544F45]/75 space-y-6">
+                    {/* Top Bar: Selector of the 4 Tactical Phases */}
+                    <div className="flex items-start sm:items-center justify-between gap-4 border-b border-[#544F45]/60 pb-4">
+                      <div className="text-left space-y-1.5">
+                        <span className="inline-block bg-[#B5251E] text-white px-2.5 py-1 rounded text-[11px] font-bold uppercase tracking-widest shadow-sm">
+                          PARALELO PRÁTICO • RINGUE × EMPRESA
+                        </span>
+                        <h3 className="font-display font-bold text-lg sm:text-xl text-white uppercase leading-snug">
+                          A Anatomia de um Round Corporativo
+                        </h3>
+                      </div>
+                      <span className="px-3 py-1 rounded-full bg-[#26241F] border border-[#544F45] text-xs font-mono text-[#F1F0EC]/80 shrink-0 shadow-inner">
+                        0{activeTacticalIndex + 1} / 04
+                      </span>
+                    </div>
+
+                    {/* Phase Tabs */}
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                      {FIRST_RHYTHM_DATA.tacticalPillars.map((pillar, idx) => (
+                        <button
+                          key={pillar.id}
+                          type="button"
+                          onClick={() => setActiveTacticalIndex(idx)}
+                          className={`px-3 py-2.5 rounded-xl text-xs font-display font-bold uppercase tracking-wider border transition-all duration-300 ease-out cursor-pointer ${
+                            activeTacticalIndex === idx
+                              ? 'btn-premium-crimson text-white border-[#B5251E]'
+                              : 'bg-[#26241F] text-[#F1F0EC]/75 border-[#45413A] hover:border-[#F1F0EC]/40 hover:text-white hover:-translate-y-0.5'
+                          }`}
+                        >
+                          Fase 0{idx + 1}
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Active Tactical Comparison Card */}
+                    {(() => {
+                      const activeItem = FIRST_RHYTHM_DATA.tacticalPillars[activeTacticalIndex];
+                      return (
+                        <div className="bg-[#26241F] rounded-2xl p-5 sm:p-6 border border-[#45413A] shadow-[inset_0_2px_10px_rgba(0,0,0,0.45)] space-y-5 text-left">
+                          <div className="flex flex-wrap items-center justify-between gap-2">
+                            <span className="inline-block bg-[#B5251E] text-white px-3 py-1 rounded text-xs font-display font-bold tracking-widest uppercase shadow-sm">
+                              {activeItem.tag}
+                            </span>
+                            <span className="text-[11px] font-semibold px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                              {activeItem.metric}
+                            </span>
+                          </div>
+
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                            <div className="bg-[#35322B]/80 rounded-xl p-4 border border-[#45413A] shadow-[inset_0_1px_0_rgba(241,240,236,0.06)] text-left">
+                              <span className="text-[10px] font-bold uppercase tracking-widest text-[#F1F0EC]/60 block">
+                                Fundamento no Boxe
+                              </span>
+                              <p className="font-display font-bold text-sm text-white uppercase mt-1.5 leading-snug">
+                                {activeItem.ringTitle}
+                              </p>
+                            </div>
+                            <div className="bg-[#35322B]/80 rounded-xl p-4 border border-[#B5251E]/45 shadow-[inset_0_1px_0_rgba(241,240,236,0.06)] text-left">
+                              <span className="inline-block bg-[#B5251E] text-white px-2.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-widest shadow-sm">
+                                Tradução Corporativa
+                              </span>
+                              <p className="font-display font-bold text-sm text-white uppercase mt-1.5 leading-snug">
+                                {activeItem.corpTitle}
+                              </p>
+                            </div>
+                          </div>
+
+                          <div className="space-y-3 text-xs sm:text-sm leading-relaxed">
+                            <div className="bg-[#35322B]/55 rounded-xl p-4 border-l-4 border-[#B5251E]">
+                              <p className="text-[#F1F0EC]/90 text-editorial-justify">
+                                <strong className="text-[#B5251E] font-display font-bold uppercase mr-1.5">
+                                  Sem Técnica (No Automático):
+                                </strong>
+                                {activeItem.st}
+                              </p>
+                            </div>
+                            <div className="bg-[#35322B]/55 rounded-xl p-4 border-l-4 border-emerald-500">
+                              <p className="text-white text-editorial-justify">
+                                <strong className="text-emerald-400 font-display font-bold uppercase mr-1.5">
+                                  Com Técnica (Em Equilíbrio):
+                                </strong>
+                                {activeItem.ct}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })()}
+
+                    <div className="px-1 flex items-center justify-between gap-3 text-xs text-[#F1F0EC]/70">
+                      <span>Metodologia Aplicada • Eduardo Amaral (FGB)</span>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setActiveTacticalIndex(
+                            (prev) => (prev + 1) % FIRST_RHYTHM_DATA.tacticalPillars.length
+                          )
+                        }
+                        className="bg-[#B5251E] hover:bg-[#AA231C] text-white px-3.5 py-1.5 rounded font-semibold transition-colors duration-200 shadow-sm cursor-pointer shrink-0"
+                      >
+                        Próxima Fase →
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* SECTION 4: DO RINGUE AO MUNDO CORPORATIVO */}
-        <section id="primeiro-ritmo" className="relative overflow-hidden bg-[#26241F] text-white py-20 sm:py-24 lg:py-28 border-t border-[#45413A]">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute top-1/3 -left-32 w-96 h-96 rounded-full bg-[#B5251E]/[0.06] blur-3xl"
-          />
-          <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-              {/* Left Column: Cadência do Boxe aplicada à Liderança e Mundo Corporativo */}
-              <div className="lg:col-span-6 space-y-7 text-left">
-                <div className="space-y-3">
-                  <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-[#B5251E]">
-                    <Target className="w-4 h-4 text-[#B5251E] shrink-0" />
-                    <span>{FIRST_RHYTHM_DATA.badge}</span>
+        {/* SECTION 3: BIOMECÂNICA DO BOXE */}
+        <section id="biomecanica-boxe" className="relative bg-white text-[#26241F] py-20 sm:py-24 lg:py-28 border-t border-[#544F45]/15">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+            {/* Título de Impacto (Topo) */}
+            <div className="text-left space-y-3 max-w-3xl border-l-[3px] border-[#B5251E] pl-5 sm:pl-6">
+              <span className="inline-block text-xs font-bold tracking-[0.22em] uppercase text-[#B5251E]">
+                BIOMECÂNICA DO BOXE
+              </span>
+              <h2 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl text-[#26241F] uppercase tracking-tight leading-[1.08]">
+                DOMINE A CIÊNCIA DO MOVIMENTO NO BOXE.
+              </h2>
+              <p className="text-base sm:text-lg text-[#544F45] leading-[1.7] text-editorial-justify">
+                Aprenda a usar a anatomia do seu corpo a seu favor, onde quer que você esteja no Brasil.
+              </p>
+            </div>
+
+            {/* O que você vai desenvolver */}
+            <div className="space-y-6 text-left">
+              <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#544F45]">
+                O QUE VOCÊ VAI DESENVOLVER
+              </span>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="card-3d-light bg-[#F1F0EC] rounded-2xl p-6 sm:p-7 border border-[#544F45]/15 space-y-3">
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl" role="img" aria-label="Rotação">🔄</span>
+                    <h3 className="font-display font-bold text-lg sm:text-xl uppercase tracking-wide text-[#26241F]">
+                      ROTAÇÃO E POTÊNCIA
+                    </h3>
                   </div>
-                  <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-[#B5251E] uppercase tracking-wide leading-[1.12]">
-                    {FIRST_RHYTHM_DATA.title}
-                  </h2>
+                  <p className="text-sm sm:text-base text-[#544F45] leading-relaxed text-editorial-justify">
+                    Entenda como girar o tronco corretamente para gerar força real, sem sobrecarregar os ombros ou as costas.
+                  </p>
                 </div>
 
-                <ul className="space-y-3.5">
-                  {FIRST_RHYTHM_DATA.points.map((point, index) => {
-                    const firstLetter = point.charAt(0);
-                    const rest = point.slice(1);
-                    const isSelectedPhase =
-                      activeTacticalIndex === index % FIRST_RHYTHM_DATA.tacticalPillars.length;
-                    return (
-                      <li
-                        key={point}
-                        onClick={() => setActiveTacticalIndex(index % FIRST_RHYTHM_DATA.tacticalPillars.length)}
-                        className={`card-3d-dark flex items-start gap-3.5 border rounded-xl px-5 py-4 text-left cursor-pointer ${
-                          isSelectedPhase
-                            ? 'border-[#B5251E]/85 bg-[#35322B]'
-                            : 'border-[#45413A] hover:border-[#B5251E]/60'
-                        }`}
-                      >
-                        <span className="text-[#B5251E] font-bold text-lg leading-snug shrink-0 mt-0.5">
-                          •
-                        </span>
-                        <p className="text-sm sm:text-base font-medium text-[#F1F0EC] leading-relaxed text-editorial-justify">
-                          <strong className="text-[#B5251E] font-bold">{firstLetter}</strong>
-                          {rest}
-                        </p>
-                      </li>
-                    );
-                  })}
-                </ul>
-
-                <div className="pt-2 flex flex-wrap items-center gap-4">
-                  <a
-                    href="#rounds"
-                    className="btn-premium-crimson inline-flex items-center gap-2 text-sm font-semibold text-white px-5 py-3 rounded-xl"
-                  >
-                    <span>Praticar nos 36 Rounds</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
-                  <span className="text-xs tracking-widest uppercase text-[#F1F0EC]/65">
-                    {FIRST_RHYTHM_DATA.subtitle}
-                  </span>
+                <div className="card-3d-light bg-[#F1F0EC] rounded-2xl p-6 sm:p-7 border border-[#544F45]/15 space-y-3">
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl" role="img" aria-label="Esquivas">🛡️</span>
+                    <h3 className="font-display font-bold text-lg sm:text-xl uppercase tracking-wide text-[#26241F]">
+                      ESQUIVAS FLUIDAS
+                    </h3>
+                  </div>
+                  <p className="text-sm sm:text-base text-[#544F45] leading-relaxed text-editorial-justify">
+                    Aprenda a sair da linha de golpe com leveza e agilidade, usando o centro de gravidade e não apenas a cintura.
+                  </p>
                 </div>
-              </div>
 
-              {/* Right Column: Painel Tático Interativo — Anatomia do Round (Ringue x Mundo Corporativo) */}
-              <div className="lg:col-span-6 text-left">
-                <div className="surface-stage-dark p-6 sm:p-8 rounded-2xl border border-[#544F45]/75 space-y-6">
-                  {/* Top Bar: Selector of the 4 Tactical Phases */}
-                  <div className="flex items-start sm:items-center justify-between gap-4 border-b border-[#544F45]/60 pb-4">
-                    <div className="text-left">
-                      <span className="text-[11px] font-bold uppercase tracking-widest text-[#B5251E] block">
-                        PARALELO PRÁTICO • RINGUE × EMPRESA
-                      </span>
-                      <h3 className="font-display font-bold text-lg sm:text-xl text-white uppercase mt-0.5 leading-snug">
-                        A Anatomia de um Round Corporativo
-                      </h3>
-                    </div>
-                    <span className="px-3 py-1 rounded-full bg-[#26241F] border border-[#544F45] text-xs font-mono text-[#F1F0EC]/80 shrink-0 shadow-inner">
-                      0{activeTacticalIndex + 1} / 04
-                    </span>
+                <div className="card-3d-light bg-[#F1F0EC] rounded-2xl p-6 sm:p-7 border border-[#544F45]/15 space-y-3">
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl" role="img" aria-label="Base">🦶</span>
+                    <h3 className="font-display font-bold text-lg sm:text-xl uppercase tracking-wide text-[#26241F]">
+                      BASE E DESLOCAMENTO
+                    </h3>
                   </div>
+                  <p className="text-sm sm:text-base text-[#544F45] leading-relaxed text-editorial-justify">
+                    Construa uma fundação sólida. Aprenda a se mover com equilíbrio, prontidão e economia de energia.
+                  </p>
+                </div>
 
-                  {/* Phase Tabs */}
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                    {FIRST_RHYTHM_DATA.tacticalPillars.map((pillar, idx) => (
-                      <button
-                        key={pillar.id}
-                        type="button"
-                        onClick={() => setActiveTacticalIndex(idx)}
-                        className={`px-3 py-2.5 rounded-xl text-xs font-display font-bold uppercase tracking-wider border transition-all duration-300 ease-out cursor-pointer ${
-                          activeTacticalIndex === idx
-                            ? 'btn-premium-crimson text-white border-[#B5251E]'
-                            : 'bg-[#26241F] text-[#F1F0EC]/75 border-[#45413A] hover:border-[#F1F0EC]/40 hover:text-white hover:-translate-y-0.5'
-                        }`}
-                      >
-                        Fase 0{idx + 1}
-                      </button>
-                    ))}
+                <div className="card-3d-light bg-[#F1F0EC] rounded-2xl p-6 sm:p-7 border border-[#544F45]/15 space-y-3">
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl" role="img" aria-label="Anatomia">⚡</span>
+                    <h3 className="font-display font-bold text-lg sm:text-xl uppercase tracking-wide text-[#26241F]">
+                      ANATOMIA DO GOLPE
+                    </h3>
                   </div>
-
-                  {/* Active Tactical Comparison Card */}
-                  {(() => {
-                    const activeItem = FIRST_RHYTHM_DATA.tacticalPillars[activeTacticalIndex];
-                    return (
-                      <div className="bg-[#26241F] rounded-2xl p-5 sm:p-6 border border-[#45413A] shadow-[inset_0_2px_10px_rgba(0,0,0,0.45)] space-y-5 text-left">
-                        <div className="flex flex-wrap items-center justify-between gap-2">
-                          <span className="text-xs font-display font-bold tracking-widest uppercase text-[#B5251E]">
-                            {activeItem.tag}
-                          </span>
-                          <span className="text-[11px] font-semibold px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-                            {activeItem.metric}
-                          </span>
-                        </div>
-
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                          <div className="bg-[#35322B]/80 rounded-xl p-4 border border-[#45413A] shadow-[inset_0_1px_0_rgba(241,240,236,0.06)] text-left">
-                            <span className="text-[10px] font-bold uppercase tracking-widest text-[#F1F0EC]/60 block">
-                              Fundamento no Boxe
-                            </span>
-                            <p className="font-display font-bold text-sm text-white uppercase mt-1 leading-snug">
-                              {activeItem.ringTitle}
-                            </p>
-                          </div>
-                          <div className="bg-[#35322B]/80 rounded-xl p-4 border border-[#B5251E]/45 shadow-[inset_0_1px_0_rgba(241,240,236,0.06)] text-left">
-                            <span className="text-[10px] font-bold uppercase tracking-widest text-[#B5251E] block">
-                              Tradução Corporativa
-                            </span>
-                            <p className="font-display font-bold text-sm text-white uppercase mt-1 leading-snug">
-                              {activeItem.corpTitle}
-                            </p>
-                          </div>
-                        </div>
-
-                        <div className="space-y-3 text-xs sm:text-sm leading-relaxed">
-                          <div className="bg-[#35322B]/55 rounded-xl p-4 border-l-4 border-[#B5251E]">
-                            <p className="text-[#F1F0EC]/90 text-editorial-justify">
-                              <strong className="text-[#B5251E] font-display font-bold uppercase mr-1.5">
-                                Sem Técnica (No Automático):
-                              </strong>
-                              {activeItem.st}
-                            </p>
-                          </div>
-                          <div className="bg-[#35322B]/55 rounded-xl p-4 border-l-4 border-emerald-500">
-                            <p className="text-white text-editorial-justify">
-                              <strong className="text-emerald-400 font-display font-bold uppercase mr-1.5">
-                                Com Técnica (Em Equilíbrio):
-                              </strong>
-                              {activeItem.ct}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })()}
-
-                  <div className="px-1 flex items-center justify-between text-xs text-[#F1F0EC]/70">
-                    <span>Metodologia Aplicada • Eduardo Amaral (FGB)</span>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setActiveTacticalIndex(
-                          (prev) => (prev + 1) % FIRST_RHYTHM_DATA.tacticalPillars.length
-                        )
-                      }
-                      className="text-[#B5251E] hover:underline font-semibold transition-colors duration-200 cursor-pointer"
-                    >
-                      Próxima Fase →
-                    </button>
-                  </div>
+                  <p className="text-sm sm:text-base text-[#544F45] leading-relaxed text-editorial-justify">
+                    Descubra como conectar pés, quadril, tronco e braço em um único movimento contínuo e devastador.
+                  </p>
                 </div>
               </div>
+            </div>
+
+            {/* Como Funciona */}
+            <div className="card-3d-light bg-[#F1F0EC] rounded-2xl p-7 sm:p-9 border border-[#544F45]/15 space-y-3 text-left">
+              <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#B5251E]">
+                COMO FUNCIONA
+              </span>
+              <p className="text-base sm:text-lg text-[#26241F] leading-relaxed text-editorial-justify">
+                Não importa sua localização. Através de uma análise técnica detalhada e orientações práticas, eu te ajudo a corrigir vícios de movimento, destravar sua agilidade e aplicar a inteligência de 35 anos de ringue no seu treino diário.
+              </p>
+              <p className="text-base sm:text-lg font-bold text-[#B5251E] italic">
+                Menos força bruta. Mais eficiência técnica.
+              </p>
+            </div>
+
+            {/* Chamada para Ação */}
+            <div className="pt-2 text-left">
+              <a
+                href={whatsappDirectUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-premium-crimson inline-flex items-center gap-3 text-white font-display font-bold text-sm uppercase tracking-wider px-8 py-4 rounded-xl shadow-lg"
+              >
+                <span>QUERO APRENDER A TÉCNICA CORRETA</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </section>
@@ -1511,6 +1385,131 @@ export default function App() {
           </div>
         </section>
 
+        {/* SECTION: TREINO EXECUTIVO */}
+        <section id="treino-executivo" className="bg-[#1C1A17] text-white py-20 sm:py-24 lg:py-28 border-t border-[#45413A]">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+            {/* Título de Impacto (Topo) */}
+            <div className="text-left space-y-3 max-w-3xl border-l-[3px] border-[#B5251E] pl-5 sm:pl-6">
+              <span className="inline-block text-xs font-bold tracking-[0.22em] uppercase text-[#B5251E]">
+                TREINO EXECUTIVO EM GRAMADO/RS
+              </span>
+              <h2 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl text-white uppercase tracking-tight leading-[1.08]">
+                BOXE PARA QUEM CONSTRÓI IMPÉRIOS.
+              </h2>
+              <p className="text-base sm:text-lg text-[#F1F0EC]/90 leading-[1.7] text-editorial-justify">
+                Treino presencial em Gramado/RS para empresários e profissionais que buscam saúde física, mental e alta performance.
+              </p>
+            </div>
+
+            {/* O que você vai desenvolver */}
+            <div className="space-y-6 text-left">
+              <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#F1F0EC]/70">
+                O QUE VOCÊ VAI DESENVOLVER
+              </span>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div className="card-3d-dark rounded-2xl p-6 border border-[#544F45]/60 space-y-3">
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl" role="img" aria-label="Clareza">🧠</span>
+                    <h3 className="font-display font-bold text-base sm:text-lg uppercase tracking-wide text-white">
+                      CLAREZA MENTAL
+                    </h3>
+                  </div>
+                  <p className="text-xs sm:text-sm text-[#F1F0EC]/80 leading-relaxed text-editorial-justify">
+                    Descarregue o estresse do dia a dia. O boxe é a válvula de escape perfeita para quem toma decisões o tempo todo.
+                  </p>
+                </div>
+
+                <div className="card-3d-dark rounded-2xl p-6 border border-[#544F45]/60 space-y-3">
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl" role="img" aria-label="Agilidade">⚡</span>
+                    <h3 className="font-display font-bold text-base sm:text-lg uppercase tracking-wide text-white">
+                      AGILIDADE E COORDENAÇÃO
+                    </h3>
+                  </div>
+                  <p className="text-xs sm:text-sm text-[#F1F0EC]/80 leading-relaxed text-editorial-justify">
+                    Reative reflexos que a rotina de escritório adormeceu. Movimentos precisos, rápidos e eficientes.
+                  </p>
+                </div>
+
+                <div className="card-3d-dark rounded-2xl p-6 border border-[#544F45]/60 space-y-3">
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl" role="img" aria-label="Condicionamento">💪</span>
+                    <h3 className="font-display font-bold text-base sm:text-lg uppercase tracking-wide text-white">
+                      CONDICIONAMENTO COMPLETO
+                    </h3>
+                  </div>
+                  <p className="text-xs sm:text-sm text-[#F1F0EC]/80 leading-relaxed text-editorial-justify">
+                    Trabalhe o corpo inteiro em uma única sessão. Força, resistência e flexibilidade sem impacto excessivo.
+                  </p>
+                </div>
+
+                <div className="card-3d-dark rounded-2xl p-6 border border-[#544F45]/60 space-y-3">
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl" role="img" aria-label="Foco">🎯</span>
+                    <h3 className="font-display font-bold text-base sm:text-lg uppercase tracking-wide text-white">
+                      FOCO E DISCIPLINA
+                    </h3>
+                  </div>
+                  <p className="text-xs sm:text-sm text-[#F1F0EC]/80 leading-relaxed text-editorial-justify">
+                    Cada treino é um exercício de concentração. Aprenda a estar 100% presente, no ringue e na vida.
+                  </p>
+                </div>
+
+                <div className="card-3d-dark rounded-2xl p-6 border border-[#544F45]/60 space-y-3 md:col-span-2 lg:col-span-2">
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl" role="img" aria-label="Defesa">🛡️</span>
+                    <h3 className="font-display font-bold text-base sm:text-lg uppercase tracking-wide text-white">
+                      DEFESA PESSOAL REAL
+                    </h3>
+                  </div>
+                  <p className="text-xs sm:text-sm text-[#F1F0EC]/80 leading-relaxed text-editorial-justify">
+                    Aprenda movimentos práticos de proteção que aumentam sua confiança e segurança no dia a dia.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Para quem é este treino? + Onde e Como */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+              <div className="card-3d-dark rounded-2xl p-7 border border-[#544F45]/60 space-y-3">
+                <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#B5251E]">
+                  PARA QUEM É ESTE TREINO?
+                </span>
+                <p className="text-sm sm:text-base text-[#F1F0EC]/90 leading-relaxed text-editorial-justify">
+                  Para empresários, executivos e profissionais liberais que já têm uma vida intensa e buscam uma atividade física diferenciada, eficaz e que respeita seus limites.
+                </p>
+                <p className="text-sm sm:text-base font-bold text-white italic pt-1">
+                  Não é para quem quer competir. É para quem quer viver melhor.
+                </p>
+              </div>
+
+              <div className="card-3d-dark rounded-2xl p-7 border border-[#544F45]/60 space-y-3">
+                <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#B5251E]">
+                  ONDE E COMO
+                </span>
+                <div className="space-y-2 text-sm sm:text-base text-[#F1F0EC]/90">
+                  <p><strong className="text-white">Local:</strong> Gramado/RS</p>
+                  <p><strong className="text-white">Formato:</strong> Treinos individuais ou em pequenos grupos</p>
+                  <p><strong className="text-white">Foco:</strong> Saúde, performance e bem-estar (sem pressão de competição)</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Chamada para Ação */}
+            <div className="pt-2 text-left">
+              <a
+                href={whatsappDirectUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-premium-crimson inline-flex items-center gap-3 text-white font-display font-bold text-sm uppercase tracking-wider px-8 py-4 rounded-xl shadow-lg"
+              >
+                <span>QUERO AGENDAR MEU TREINO</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* SECTION 7: ENCERRAMENTO & CONTATO — Faithful to Slides 12, 19, 26, 33, 40, 47 */}
         <section id="contato" className="relative overflow-hidden bg-[#35322B] text-white py-20 sm:py-24 lg:py-28 border-t border-[#45413A]">
           <div
@@ -1526,15 +1525,6 @@ export default function App() {
                   alt="Eduardo Amaral — Mentorias e Boxe"
                   className="w-60 sm:w-80 h-auto"
                 />
-
-                <div className="space-y-2 max-w-md">
-                  <p className="font-display font-medium text-sm sm:text-base tracking-wider uppercase text-white leading-relaxed">
-                    FELIZ PELO CARINHO DE TODOS.
-                  </p>
-                  <p className="font-display font-medium text-sm sm:text-base tracking-wider uppercase text-white leading-relaxed">
-                    HONRADO EM COMPARTILHAR ESSE MOMENTO COM VOCÊS.
-                  </p>
-                </div>
 
                 <div className="space-y-3">
                   <a
@@ -1594,42 +1584,23 @@ export default function App() {
                   onSubmit={handleContactSubmit}
                   className="surface-stage-dark rounded-3xl p-6 sm:p-8 border border-[#544F45]/75 space-y-4 text-left"
                 >
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label
-                        htmlFor="contact-name"
-                        className="block text-xs font-bold uppercase tracking-wider text-[#F1F0EC]/80 mb-1.5"
-                      >
-                        Seu Nome *
-                      </label>
-                      <input
-                        id="contact-name"
-                        type="text"
-                        required
-                        maxLength={80}
-                        value={contactName}
-                        onChange={(e) => setContactName(e.target.value)}
-                        placeholder="Ex: Maurício Silva"
-                        className="w-full px-4 py-3 rounded-xl bg-[#35322B] border border-[#544F45] text-white placeholder-[#F1F0EC]/40 text-sm shadow-inner transition-colors duration-200 focus:border-[#B5251E] focus:outline-none"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="contact-company"
-                        className="block text-xs font-bold uppercase tracking-wider text-[#F1F0EC]/80 mb-1.5"
-                      >
-                        Empresa / Organização
-                      </label>
-                      <input
-                        id="contact-company"
-                        type="text"
-                        maxLength={80}
-                        value={contactCompany}
-                        onChange={(e) => setContactCompany(e.target.value)}
-                        placeholder="Nome da sua empresa"
-                        className="w-full px-4 py-3 rounded-xl bg-[#35322B] border border-[#544F45] text-white placeholder-[#F1F0EC]/40 text-sm shadow-inner transition-colors duration-200 focus:border-[#B5251E] focus:outline-none"
-                      />
-                    </div>
+                  <div>
+                    <label
+                      htmlFor="contact-name"
+                      className="block text-xs font-bold uppercase tracking-wider text-[#F1F0EC]/80 mb-1.5"
+                    >
+                      Seu Nome *
+                    </label>
+                    <input
+                      id="contact-name"
+                      type="text"
+                      required
+                      maxLength={80}
+                      value={contactName}
+                      onChange={(e) => setContactName(e.target.value)}
+                      placeholder="Ex: Maurício Silva"
+                      className="w-full px-4 py-3 rounded-xl bg-[#35322B] border border-[#544F45] text-white placeholder-[#F1F0EC]/40 text-sm shadow-inner transition-colors duration-200 focus:border-[#B5251E] focus:outline-none"
+                    />
                   </div>
 
                   <div>
@@ -1665,7 +1636,7 @@ export default function App() {
                       htmlFor="contact-message"
                       className="block text-xs font-bold uppercase tracking-wider text-[#F1F0EC]/80 mb-1.5"
                     >
-                      Objetivo ou Momento da Equipe (Opcional)
+                      Enviar Mensagem (Opcional)
                     </label>
                     <textarea
                       id="contact-message"
