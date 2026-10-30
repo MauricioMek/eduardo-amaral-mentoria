@@ -625,8 +625,8 @@ export default function App() {
                           </div>
 
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                            <div className="bg-[#35322B]/80 rounded-xl p-4 border border-[#45413A] shadow-[inset_0_1px_0_rgba(241,240,236,0.06)] text-left">
-                              <span className="text-[10px] font-bold uppercase tracking-widest text-[#F1F0EC]/60 block">
+                            <div className="bg-[#35322B]/80 rounded-xl p-4 border border-[#B5251E]/45 shadow-[inset_0_1px_0_rgba(241,240,236,0.06)] text-left">
+                              <span className="inline-block bg-[#B5251E] text-white px-2.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-widest shadow-sm">
                                 Fundamento no Boxe
                               </span>
                               <p className="font-display font-bold text-sm text-white uppercase mt-1.5 leading-snug">
