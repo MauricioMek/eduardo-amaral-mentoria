@@ -436,7 +436,7 @@ export default function App() {
 
                   <div className="space-y-2">
                     <h1 className="font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl tracking-tight text-white leading-[1.05] drop-shadow-[0_4px_18px_rgba(0,0,0,0.35)]">
-                      VIVÊNCIA
+                      VIVÊNCIAS
                       <br />
                       <span className="inline-block">DO </span>{' '}
                       <span className="inline-block relative pb-2">
